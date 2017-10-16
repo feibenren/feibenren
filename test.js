@@ -1,13 +1,20 @@
-try{
-    console.log(111);
-    setTimeout(function() {
-        throw new Error('setTimeout err');  
-    }, 2000);
-}catch(e){
-    console.log('catch:');
-    console.log(e);
-}finally{
-    console.log('finally');
-}
+var str=`
+王兵
+韦杰
+赵某某
+钱某某
+王某某
+孙某某
+`;
 
-console.log('after try');
+var arr=str.split('\n');
+console.log(arr);
+var res=arr.filter(function(val,index,arr){
+   if( val.search(/^王/) >-1 ){
+        return false;
+   }else{
+       return true;
+   }
+}).join('\n');
+console.log(arr);
+console.log(res);
