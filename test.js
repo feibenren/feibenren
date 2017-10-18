@@ -1,20 +1,15 @@
-var str=`
-王兵
-韦杰
-赵某某
-钱某某
-王某某
-孙某某
-`;
+function Person(name){
+    this.name=name;
+    this.say=function(word){
+        console.log(word);
+    }
+}
+/* Person.prototype.eat=function(food){
+    console.log(food);
+} */
+var p1=new Person('wang');
+p1.say('i am p1');
 
-var arr=str.split('\n');
-console.log(arr);
-var res=arr.filter(function(val,index,arr){
-   if( val.search(/^王/) >-1 ){
-        return false;
-   }else{
-       return true;
-   }
-}).join('\n');
-console.log(arr);
-console.log(res);
+console.log(Person.prototype);
+
+
