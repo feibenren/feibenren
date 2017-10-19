@@ -33,7 +33,7 @@ tags:
 - appendChild
 - hasChildNodes
 - cloneNode
-- insertBefore
+- insertBefore:也是内部插入，因为带insert
 - removeChild
 - replaceChild
 
