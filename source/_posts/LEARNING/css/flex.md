@@ -31,3 +31,7 @@ Flex:IE9+支持
 - flex-basis:在分配多余空间之前，项目占据的主轴空间,浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小
 - flex:flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选
 - align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch(auto | flex-start | flex-end | center | baseline | stretch)
+
+注意点
+- 项目的width,如果容器的空间够用，会按照默认的设置大小展示，如果不够，width会自动调整，所以，width可能会改变
+- 项目的float、clear和vertical-align会失效
