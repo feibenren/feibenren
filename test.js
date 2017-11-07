@@ -1,8 +1,8 @@
-var assert = require('assert');
+var koa = require('koa');
+var app = new koa();
 
-function add (a, b) {
-  return a + b;
-}
+app.use(function *(){
+  this.body = 'Hello World';
+});
 
-var expected = add(1,2);
-assert( expected === 4, '预期1加2等于3');
+app.listen(3000);
