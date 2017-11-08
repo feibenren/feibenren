@@ -1,8 +1,8 @@
 ---
-title: 时间插件
+title: loading图
 categories: 
 - LIVING
-- JAVASCRIPT
+- CSS
 tags:
 
 ---
