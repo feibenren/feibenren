@@ -1,5 +1,5 @@
 ---
-title: loading图
+title: loading效果
 categories: 
 - LIVING
 - CSS
