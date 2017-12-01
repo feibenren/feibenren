@@ -79,3 +79,25 @@ say()
         });
     })
 ```
+
+# async
+```
+function word(val,t){
+  return new Promise(function(resolve,reject){
+    setTimeout(function(){
+      console.log(val);
+      resolve();
+    },t)
+  })
+  console.log(val);
+}
+
+var say= async function(){
+  await word('hello',3000);
+  await word('您好',3000);
+  await word('byebye',3000);
+}
+say();
+
+```
+最简单，最直观，最方便
