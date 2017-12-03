@@ -17,6 +17,8 @@ tags:
 - yarn add webpack --dev (npm install webpack --save-dev)
 - yarn remove webpack  (npm uninstall webpack --save-dev):yarn remove的时候，不需要指定--dev，只要存在，就移出，无论在哪个里面
 - yarn upgrade jquery (npm update jquery);
+- yarn global add/remove/upgrade (npm -g install/update/uninstall);
+- yarn install(npm install)
 
 
 
