@@ -160,4 +160,81 @@ watch功能：js修改，页面会刷新，template修改，也会刷新页面
 - 页面的构建，几乎都写在main.js中的话，使用hot
 
 
+# output.publicPath 配置好，devserver就会自动跳转到一个类似于public的目录页面，为什么？
 
+
+# output.publicPath:'asdf'
+outpath输出路径是 ouput.publicPath+path+filename
+output.publicPath默认是'',
+仅此而已，不要和devserver混淆到一起
+改配置仅仅修改了bundle的输出路径，个人觉得最好只在product中设置
+
+```
+<script type="text/javascript" src="asdf/scripts/main--f2a22f432c0ed250bb55.js"></script>
+```
+所以该配置个人觉得一般仅仅是在product中才会设置，dev中千万不要设置，否则找不到目录
+
+## template 的图片，是按照哪个相对目录来的？
+devServer.contentBase来的，该属性默认为该项目目录 
+## css中的图片，是按照哪个目录来的？
+引入该css文件的js文件来的
+
+# 如何使用webpac制作一个通用的模块呢？？？？
+libary,libarTarget
+
+
+# 为了更清晰，`-loader` 后缀在 webpack 2 中不再是可选的
+
+
+
+
+# context: __dirname, // string（绝对路径！）
+  // webpack 的主目录
+  // entry 和 module.rules.loader 选项
+  // 相对于此目录解析
+
+# mock数据
+
+```
+devServer: {
+    hot: true,
+    open: true,
+    // contentBase: path.resolve(__dirname, 'app/images'),
+    before:function(app){
+        app.get('/test/',function(req,res){
+            res.end('xxxxxxx');
+        })
+    },
+},
+```
+
+# devServer.contentBase
+
+告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要。devServer.publicPath 将用于确定应该从哪里提供 bundle，并且此选项优先。
+
+默认情况下，将使用**当前工作目录**作为提供内容的目录，但是你可以修改为其他目录：
+
+contentBase: path.join(__dirname, "public")
+注意，推荐使用绝对路径。
+
+## 当前工作目录指的是这个项目所在的目录，不设置的话，默认是可以访问这个项目中所有的资源的
+
+# devServer.overlay:全屏显示错误
+
+
+# devServer.proxy
+```
+proxy: {
+    "/api": {
+        target: "http://www.test.com/news.php",
+        changeOrigin: true
+    }
+}
+```
+必须添加`changeOrigin`属性
+
+
+#devServer.publicPath:这个目录甚至可以是瞎写的
+此路径下的打包文件可在浏览器中访问。
+
+假设服务器运行在 http://localhost:8080 并且 output.filename 被设置为 bundle.js。默认 publicPath 是 "/"，所以你的包(bundle)可以通过 http://localhost:8080/bundle.js 访问。
