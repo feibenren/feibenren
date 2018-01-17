@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="wrapper">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+        </div>
+        <ul class="pagination">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="prev">&lt;</div>
+        <div class="next">&gt;</div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .container {
+        width: 500px;
+        height: 300px;
+        margin: 100px auto;
+        position: relative;
+        /* overflow: hidden; */
+        position: relative;
+    }
+
+    .container .wrapper {
+        width: 2000px;
+        height: 100%;
+        position: absolute;
+        left: 0px;
+        top: 0;
+        /* border: 1px solid #aaa; */
+    }
+
+    .container .wrapper .item {
+        float: left;
+        width: 500px;
+        height: 100%;
+        font-size: 100px;
+        line-height: 300px;
+        text-align: center;
+        background-color: #eee;
+        opacity: 0.8;
+    }
+
+    .container .pagination {
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%);
+    }
+
+    .container .pagination li {
+        width: 30px;
+        height: 30px;
+        background-color: #bbb;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .container .pagination li.active {
+        opacity: 0.5;
+    }
+
+    .container .prev,
+    .container .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        background-color: #aaa;
+        cursor: pointer;
+    }
+
+    .container .prev {
+        left: 0;
+    }
+
+    .container .next {
+        right: 0;
+    }
+</style>
+<script>
+    //三步走
+    //1:确定当前index
+    //2:运动
+    //3:动画
+    var container = document.querySelector('.container');
+    var wrapper = document.querySelector('.wrapper')
+    var prev = document.querySelector('.prev')
+    var next = document.querySelector('.next')
+    var pagination = document.querySelector('.pagination')
+    var icons = document.querySelectorAll('.pagination li');
+    var items = document.querySelectorAll('.wrapper .item');
+    var current = 0;
+    var current2 = 0;
+    var isFinished=true;
+    var oneWidth = items[0].clientWidth;
+    icons.forEach((val, key) => {
+        val.index = key;
+        val.addEventListener('click', function () {
+            current = this.index;
+            current2 = this.index;
+            move();
+        })
+    })
+
+    function move() {
+        if(!isFinished){
+            console.log('not finished')
+            return false;
+        }
+        isFinished=false;
+        if (current2 == items.length - 1) {
+            items[0].style.position = 'relative';
+            items[0].style.left = items.length * oneWidth + 'px';
+        }
+        if (current2 == -1) {
+            items[items.length - 1].style.position = 'relative';
+            items[items.length - 1].style.left = -items.length * oneWidth + 'px';
+        }
+
+        $('.wrapper').animate({
+            left: -current2 * oneWidth
+        }, function () {
+            if (current2 == items.length) {
+                items[0].style.position = 'static';
+                items[0].style.left = 0 + 'px';
+                wrapper.style.left='0px';
+                current2=0;
+            }
+            if (current2 == -1) {
+                items[items.length - 1].style.position = 'static';
+                items[items.length - 1].style.left = 0 + 'px';
+                wrapper.style.left=-(items.length-1)*oneWidth+'px'
+                current2=items.length-1;
+            }
+            isFinished=true;
+        })
+
+
+        icons.forEach(element => {
+            element.classList.remove('active');
+        });
+        icons[current].classList.add('active');
+    }
+
+
+
+
+    prev.onclick = function () {
+       
+        current--;
+        current2--;
+        
+        if (current == -1) {
+            current = items.length - 1;
+        }
+        move();
+    }
+    next.onclick = function () {
+       
+        current++;
+        current2++;
+        
+        if (current == items.length) {
+            current = 0;
+        }
+        move();
+    }
+</script>
