@@ -1,9 +1,9 @@
 ---
-title: 简单markdown
+title: echarts
 categories: 
-- DEMO
+- LIBRARY
 tags:
-
+- js
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: loading效果
 categories: 
-- LIVING
+- DEMO
 - CSS
 tags:
 

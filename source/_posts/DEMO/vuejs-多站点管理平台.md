@@ -1,8 +1,7 @@
 ---
 title: vuejs-多站点管理平台
 categories: 
-- LEARNING
-- JAVASCRIPT
+- DEMO
 tags:
 
 ---
