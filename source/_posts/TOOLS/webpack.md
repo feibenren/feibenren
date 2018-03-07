@@ -1,7 +1,6 @@
 ---
 title: webpack
 categories: 
-- LEARNING
 - TOOLS
 tags:
 - TOOLS

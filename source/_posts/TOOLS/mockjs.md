@@ -1,7 +1,6 @@
 ---
 title: mockjs
 categories: 
-- LEARNING
 - TOOLS
 tags:
 - mockjs

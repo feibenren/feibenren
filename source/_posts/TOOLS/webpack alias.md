@@ -1,7 +1,6 @@
 ---
 title: webpack alias
 categories: 
-- LEARNING
 - TOOLS
 tags:
 - TOOLS

@@ -1,7 +1,6 @@
 ---
 title: webpack 使用cdn
 categories: 
-- LEARNING
 - TOOLS
 tags:
 - TOOLS

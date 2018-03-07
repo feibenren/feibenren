@@ -1,7 +1,6 @@
 ---
 title: webpack-tree shaking
 categories: 
-- LEARNING
 - TOOLS
 tags:
 - TOOLS

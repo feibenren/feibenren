@@ -1,7 +1,6 @@
 ---
 title: yarn
 categories: 
-- LEARNING
 - TOOLS
 tags:
 - yarn

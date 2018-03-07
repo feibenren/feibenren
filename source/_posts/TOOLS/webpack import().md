@@ -1,7 +1,6 @@
 ---
 title: webpack import()
 categories: 
-- LEARNING
 - TOOLS
 tags:
 - TOOLS
