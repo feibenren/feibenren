@@ -33,6 +33,8 @@ tags:
 # state
 组件内部状态
 
+构造函数是唯一能够初始化 this.state 的地方
+
 ## 初始化
 ```
 constructor(props){
@@ -48,7 +50,9 @@ constructor(props){
 this.setState({
     name:222
 })
+
 ```
+如果state非常大，我可以只更新其中的一部分吗? **可以**
 
 # 组件渲染时机
 
