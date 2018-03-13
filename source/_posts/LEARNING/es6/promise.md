@@ -8,6 +8,11 @@ tags:
 - es6
 ---
 
+
+# 如何执行异步代码？
+
+
+
 浏览器端的异步操作的常见情况
 - 定时器
 - ajax加载数据
@@ -29,6 +34,12 @@ Promise构造函数接受一个函数作为参数，该函数的两个参数分�
 **它的作用是为 Promise 实例添加状态改变时的回调函数**
 
 then方法返回的是一个新的Promise实例（注意，不是原来那个Promise实例）。因此可以采用链式写法，即then方法后面再调用另一个then方法
+
+```
+p.then().then()
+//虽然then返回的是一个promise，但是头一个then返回的promise没有设定resolve，reject，所以，第一个then执行完成后，第二个then会立即执行
+//如何实现第一个then里面函数执行完成后过一段时间再执行第二个then呢？再第一个then里面继续返回一个自己设定的promise
+```
 
 **第一个回调函数完成以后，会将返回结果作为参数，传入第二个回调函数**
 
@@ -72,8 +83,8 @@ Promise 内部的错误不会影响到 Promise 外部的代码，通俗的说法
 一般总是建议，Promise 对象后面要跟catch方法，这样可以处理 Promise 内部发生的错误。catch方法返回的还是一个 Promise 对象，因此后面还可以接着调用then方法。
 
 
-# Promise.all():所有子promise resolve/reject，才会then
-# Promise.race():只要有一个primise resolve/reject,就会then
+# Promise.all([p1,p2,p3]):将多个promise包装成一个promise,所有子promise resolve/reject，才会then
+# Promise.race([p1,p2,p3]):将多个promise包装成一个promise,只要有一个primise resolve/reject,就会then
 # Promise.resolve():将普通对象转化为promise对象
  ```
  Promise.resolve('foo')
