@@ -1,10 +1,4 @@
-let str=`
-111
-
-222
-
-333
-`;
-
-let res=str.replace(/\n+/g,'a');
-console.log(res)
+const fs=require('fs');
+let content=fs.readFileSync('./test.md','utf-8');
+let res=content.replace(/\n/g,'');
+console.log(res);
