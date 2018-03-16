@@ -1,4 +1,4 @@
-const fs=require('fs');
-let content=fs.readFileSync('./test.md','utf-8');
-let res=content.replace(/\r\n/g,'');
-console.log(res);
+/* 密码长度 6-12 位，
+由数字、小写字符和大写字母组成，
+但必须至少包括 2 种字符。 */
+
