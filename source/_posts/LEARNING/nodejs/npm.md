@@ -6,6 +6,8 @@ categories:
 tags:
 - js
 ---
+#
+查看当前项目的所有 npm 脚本命令，可以使用不带任何参数的npm run命令。
 
 # 最重要的命令
 
