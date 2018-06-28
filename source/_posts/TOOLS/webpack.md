@@ -7,9 +7,14 @@ tags:
 ---
 
 
+
 # 什么是webpack？
 
 就是一个模块打包机
+
+
+
+
 
 # 优点和缺点是什么？
 
@@ -237,3 +242,9 @@ proxy: {
 此路径下的打包文件可在浏览器中访问。
 
 假设服务器运行在 http://localhost:8080 并且 output.filename 被设置为 bundle.js。默认 publicPath 是 "/"，所以你的包(bundle)可以通过 http://localhost:8080/bundle.js 访问。
+
+
+
+# 笔记
+
+webpack 不会更改代码中除 import 和 export 语句以外的部分
