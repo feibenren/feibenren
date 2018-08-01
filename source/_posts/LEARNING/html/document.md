@@ -29,3 +29,10 @@ document节点是文档的根节点
 - querySelector()，getElementById()，querySelectorAll()，getElementsByTagName()，getElementsByClassName()，getElementsByName()
 - createElement()，createTextNode()，createAttribute()，
 - addEventListener()，removeEventListener()，dispatchEvent()
+
+
+# write()，writeln()区别
+
+
+
+
