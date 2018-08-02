@@ -2,8 +2,9 @@
 title: 一个对象中，key可以用变量表示吗
 categories: 
 - QUESTION
-- JAVASCRIPT
-tags:
+---
+
+
 
 ```
 var key1='qqq';

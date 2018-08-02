@@ -2,9 +2,6 @@
 title: webpack import()
 categories: 
 - TOOLS
-tags:
-- TOOLS
-- WEBPACK
 ---
 
 

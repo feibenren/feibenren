@@ -1,8 +1,6 @@
 ---
 title: scrollreveal
 categories: 
-- scrollreveal
-tags:
 - LIBRARY
 ---
 

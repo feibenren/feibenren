@@ -2,8 +2,7 @@
 title: 7-days-nodejs
 categories: 
 - BOOK
-tags:
-- book
+
 ---
 
 # [http://nqdeng.github.io/7-days-nodejs](http://nqdeng.github.io/7-days-nodejs)

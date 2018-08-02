@@ -2,8 +2,6 @@
 title: yarn
 categories: 
 - TOOLS
-tags:
-- yarn
 ---
 
 #yarn的优势

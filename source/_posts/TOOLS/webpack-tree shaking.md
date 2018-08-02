@@ -2,10 +2,6 @@
 title: webpack-tree shaking
 categories: 
 - TOOLS
-tags:
-- TOOLS
-- WEBPACK
-- TREE SHAKING
 ---
 
 

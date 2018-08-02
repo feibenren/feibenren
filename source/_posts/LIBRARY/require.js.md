@@ -2,8 +2,7 @@
 title: REQUIRE.JS
 categories: 
 - LIBRARY
-tags:
-- LIBRARY
+
 ---
 
 # REQUIREJS

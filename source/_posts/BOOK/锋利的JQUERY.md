@@ -2,8 +2,7 @@
 title: 锋利的JQUERY
 categories: 
 - BOOK
-tags:
-- book
+
 ---
 
 
@@ -102,12 +101,12 @@ console.log($('h2',res));//表示在res中查找h2
     - removeAttr()
     - prop()
     - removeProp()
-- css操作
+- CSS操作
     - addClass()
     - removeClass()
     - toggleClass()
-- html/text操作
-    - html()
+- HTML/text操作
+    - HTML()
     - text()
     - val()
 
@@ -196,8 +195,8 @@ console.log($('h2',res));//表示在res中查找h2
 
 ## 数据格式
 - xml
-- html
-- json
+- HTML
+on
 ajax可以设置默认的返回数据格式，原理设置发送的http请求头`Accept:application/xml, text/xml`,
 问题:如果请求的是一个返回json数据的接口，而我设置的格式是html，会怎么样？？？？
 我将得不到数据

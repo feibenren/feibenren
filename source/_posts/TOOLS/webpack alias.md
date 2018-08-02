@@ -2,9 +2,6 @@
 title: webpack alias
 categories: 
 - TOOLS
-tags:
-- TOOLS
-- WEBPACK
 ---
 
 

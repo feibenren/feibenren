@@ -2,8 +2,7 @@
 title: JavaScript正则表达式迷你书
 categories: 
 - BOOK
-tags:
-- book
+
 ---
 
 # 两种模糊匹配

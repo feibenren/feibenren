@@ -2,8 +2,6 @@
 title: webpack
 categories: 
 - TOOLS
-tags:
-- TOOLS
 ---
 
 
@@ -75,7 +73,7 @@ module.exports={
 ```
 
 # 常见loader
-- css-loader
+- CSS-loader
 - style-loader
 - sass-loader
 - file-loader
@@ -83,7 +81,7 @@ module.exports={
 
 
 # 常见plugin
-- html-webpack-plugin:使用模板来构建页面
+- HTML-webpack-plugin:使用模板来构建页面
 - clean-webpack-plugin:删除指定目录
 - uglifyjs-webpack-plugin:压缩js
 - CommonsChunkPlugin :防止重复

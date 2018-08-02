@@ -2,9 +2,6 @@
 title: webpack 使用cdn
 categories: 
 - TOOLS
-tags:
-- TOOLS
-- WEBPACK
 ---
 
 # 如何使用cnd
