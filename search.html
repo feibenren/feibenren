@@ -86,8 +86,6 @@
                         this.raw_list.map(val => {
                             if (p.test(val.content)) {
                                 //跟换html实体
-                                val.title = val.title.replace(/</g, `$lt;`);
-                                val.title = val.title.replace(/>/g, `$gt;`);
                                 val.title = val.title.replace(p, `<span class='match'>${this.keyword}</span>`);
                                 val.content = val.content.replace(/</g, `$lt;`);
                                 val.content = val.content.replace(/>/g, `$gt;`);
