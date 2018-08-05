@@ -1,9 +1,7 @@
 ---
 title: location
 categories: 
-
-- HTML
-
+- BOM
 ---
 
 # location
