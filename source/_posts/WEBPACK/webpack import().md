@@ -1,7 +1,7 @@
 ---
 title: webpack import()
 categories: 
-- TOOLS
+- WEBPACK
 ---
 
 

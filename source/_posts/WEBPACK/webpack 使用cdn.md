@@ -1,7 +1,7 @@
 ---
 title: webpack 使用cdn
 categories: 
-- TOOLS
+- WEBPACK
 ---
 
 # 如何使用cnd

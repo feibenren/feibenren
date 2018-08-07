@@ -1,7 +1,7 @@
 ---
 title: webpack-tree shaking
 categories: 
-- TOOLS
+- WEBPACK
 ---
 
 

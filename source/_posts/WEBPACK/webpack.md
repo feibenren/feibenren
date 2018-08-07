@@ -1,7 +1,7 @@
 ---
 title: webpack
 categories: 
-- TOOLS
+- WEBPACK
 ---
 
 

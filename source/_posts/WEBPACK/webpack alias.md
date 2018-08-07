@@ -1,7 +1,7 @@
 ---
 title: webpack alias
 categories: 
-- TOOLS
+- WEBPACK
 ---
 
 
