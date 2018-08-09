@@ -2,7 +2,7 @@
 title: URL,URI,encodeURI(),encodeURIComponent()
 categories: 
 
-- HTML
+- HTML5
 
 ---
 

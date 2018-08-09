@@ -2,7 +2,7 @@
 title: animate && transition
 categories: 
 
-- CSS
+- CSS3
 
 ---
 

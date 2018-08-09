@@ -1,7 +1,7 @@
 ---
 title: canvas
 categories: 
-- HTML
+- HTML5
 ---
 
 ## canvas

@@ -1,9 +1,7 @@
 ---
 title: 移动端的css
 categories: 
-
-
-- CSS
+- CSS3
 ---
 
 # viewport

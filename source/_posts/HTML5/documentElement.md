@@ -2,7 +2,7 @@
 title: documentElement
 categories: 
 
-- HTML
+- HTML5
 
 ---
 

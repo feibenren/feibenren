@@ -2,7 +2,7 @@
 title: textarea限制横向拖动
 categories: 
 
-- CSS
+- CSS3
 
 ---
 
