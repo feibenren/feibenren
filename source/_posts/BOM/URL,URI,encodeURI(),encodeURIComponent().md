@@ -1,9 +1,7 @@
 ---
 title: URL,URI,encodeURI(),encodeURIComponent()
 categories: 
-
-- HTML5
-
+- BOM
 ---
 
 ![三者关系](/images/img3.png)
