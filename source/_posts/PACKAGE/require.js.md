@@ -1,7 +1,7 @@
 ---
 title: REQUIRE.JS
 categories: 
-- LIBRARY
+- PACKAGE
 
 ---
 

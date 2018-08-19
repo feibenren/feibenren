@@ -1,9 +1,8 @@
 ---
 title: egg
 categories: 
-
+- PACKAGE
 - NODEJS
-
 ---
 
 # egg

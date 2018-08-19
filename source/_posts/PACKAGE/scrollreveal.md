@@ -1,7 +1,7 @@
 ---
 title: scrollreveal
 categories: 
-- LIBRARY
+- PACKAGE
 ---
 
 # scrollreveal

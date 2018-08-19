@@ -1,10 +1,8 @@
 ---
 title: yargs
 categories: 
-
+- PACKAGE
 - NODEJS
-
-
 ---
 
 # yargs

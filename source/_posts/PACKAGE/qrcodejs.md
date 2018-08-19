@@ -1,7 +1,7 @@
 ---
 title: qrcodejs
 categories: 
-- LIBRARY
+- PACKAGE
 
 ---
 

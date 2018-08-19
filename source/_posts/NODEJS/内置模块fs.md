@@ -1,10 +1,32 @@
 ---
 title: fs
 categories: 
-
 - NODEJS
-
 ---
+
+# fs
+node中的文件操作模块,通过该模块，可以实现读取，写入，更名，删除 等功能
+常见的函数
+
+- fs.readFile(path,[encoding],[callback]):读取文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # 文件的读写

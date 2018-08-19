@@ -1,7 +1,7 @@
 ---
 title: jquery.validation
 categories: 
-- LIBRARY
+- PACKAGE
 
 
 ---

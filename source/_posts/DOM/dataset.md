@@ -2,7 +2,7 @@
 title: dataset属性
 categories: 
 
-- JAVASCRIPT
+- DOM
 
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: echarts
 categories: 
-- LIBRARY
+- PACKAGE
 
 
 ---

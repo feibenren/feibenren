@@ -1,7 +1,7 @@
 ---
 title: jquery.lazyload
 categories: 
-- LIBRARY
+- PACKAGE
 
 
 ---

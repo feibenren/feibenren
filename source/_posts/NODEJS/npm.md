@@ -21,6 +21,7 @@ npm help npm     involved overview
 ```
 
 ### npm 内置了两个命令简写，npm test 等同于执行 npm run lint，npm start 等同于执行 npm run start。
+还有npm stop
 
 ### 两个命令中间用&&连接，表示执行完一个后执行另一个。如果希望两个命令同时平行执行，它们中间可以用&连接。
 

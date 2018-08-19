@@ -1,9 +1,7 @@
 ---
 title: element-ui
 categories: 
-- LIBRARY
-
-
+- PACKAGE
 ---
 
 # element-ui

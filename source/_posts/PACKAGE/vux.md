@@ -1,7 +1,7 @@
 ---
 title: vux
 categories: 
-- LIBRARY
+- PACKAGE
 ---
 
 # vux

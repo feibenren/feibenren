@@ -1,7 +1,7 @@
 ---
 title: jquery.form
 categories: 
-- LIBRARY
+- PACKAGE
 
 
 ---

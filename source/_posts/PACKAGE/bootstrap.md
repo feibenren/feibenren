@@ -1,7 +1,7 @@
 ---
 title: bootstrap
 categories: 
-- LIBRARY
+- PACKAGE
 
 
 ---

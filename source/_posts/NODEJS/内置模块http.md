@@ -1,10 +1,134 @@
 ---
 title: http
 categories: 
-
 - NODEJS
-
 ---
+
+# http模块
+node中对于网络服务的实现,
+该模块包含一个服务器(http.Server)，和一个客户端(http.request)
+
+# http.Server
+http.Server对象是创建服务器的接口，继承自EventEmitter
+
+有一些自定义事件，主要的是 **request** 事件:当接收到请求的时候，触发该事件
+
+示例:
+
+```
+const http=require('http');
+const server=new http.Server();
+server.on('request',function(req,res){
+    res.end('111');
+});
+server.listen(9998);
+```
+
+> 但是测试发现一个怪异现象，就是我本地测试，同一个请求，使用浏览器访问request会触发多次，但是postman正常，就触发一次，不知道为什么
+
+## http.ServerRequest(请求对象)
+该对象只能通过传参方式获得，不能通过`server.ServerRequest`方式获取
+
+只能通过request对应事件函数的第一个参数获取(req)
+```
+server.on('request',function(req,res){
+    res.end('111');
+});
+```
+
+该req对象上有很多属性
+- url
+- method
+- headers
+等
+
+### 如何获取GET参数
+很简单，解析req.url即可
+```
+const http = require("http");
+const server = new http.Server();
+let i = 0;
+server.on("request", function(req, res) {
+  let str=req.url;
+  str=str.split('?')[1];
+  let arr=str.split('&');
+  let params={};
+  arr.map(val=>{
+      let temp=val.split('=');
+      params[temp[0]]=temp[1];
+  });
+  console.log(params);
+  res.end(req.url);
+});
+server.listen(9998);
+```
+但是，node提供了一个模块专门用来解析url:url;
+
+```
+const http = require("http");
+const url = require("url");
+const server = new http.Server();
+let i = 0;
+server.on("request", function(req, res) {
+  console.log(url.parse(req.url));
+  res.end(req.url);
+});
+server.listen(9998);
+```
+
+
+### 如何获取POST数据
+req对象上没有对应的属性，所以无法直接获取
+
+该对象也继承自events，因为请求数据可能很大,那么接收数据可能需要很长时间，所以必须使用事件机制
+
+自定义事件有三个
+- data:接收到一个chunk就触发，所以可能会触发多次该事件，chunk会传入处理函数的第一个参数
+- end:数据接收完成
+- close:结束了请求，比如用户数据没有传完，就关闭浏览器了
+
+示例:
+
+```
+
+```
+
+
+
+
+
+
+
+
+
+
+# http.request
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## 模块方法
