@@ -81,5 +81,8 @@ setInterval(function(){
 `npm install `和`npm install -g` 完全不是一个意思，一个是 **下载包**，一个是 **安装自定义命令**
 
 
+# shebang
 
 
+# 链接
+[https://www.cnblogs.com/wxishang1991/p/5439024.html](https://www.cnblogs.com/wxishang1991/p/5439024.html)

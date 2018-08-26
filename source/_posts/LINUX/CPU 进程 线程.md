@@ -1,7 +1,7 @@
 ---
 title: CPU 进程 线程
 categories: 
-- COMPUTER
+- LINUX
 ---
 
 # CPU
