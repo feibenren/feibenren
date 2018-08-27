@@ -202,11 +202,47 @@ gulp.task('clean', function() {
 任务的描述，但是我本地测试没有成功
 
 
+# gulp.parallel(...tasks)
+Takes a number of task names or functions and returns a function of the composed tasks or functions.
+
+将一组任务合并成一个组合任务
+
+When using task names, the task should already be registered.
+
+当使用任务名称的时候，这个任务应该已经被注册了
+
+When the returned function is executed, the tasks or functions will be executed in parallel, all being executed at the same time. If an error occurs, all execution will complete.
+
+当组合任务被执行，那么这个组合任务中的每个单独的任务会并行执行
+
+tasks
+Type: Array, String or Function
+
+A task name, a function or an array of either.
+
+示例：
+```
+gulp.parallel(str1,str2)
+gulp.parallel([str1,str2])
+gulp.parallel(fn1,fn2)
+gulp.parallel([fn1,fn2])
+```
+
+# gulp.series(...tasks)
+和gulp.parallel()相似，只不过是串行执行
+
+# gulp.watch(globs[, opts][, fn])
+
+匹配对应的文件，执行对应的方法
+
+该方法和gulp.task对应的函数类似，也需要执行回调或者返回stream/promise
 
 
 
 
 
+# gulp.tree(options)
+返回任务列表
 
 
 
@@ -234,12 +270,17 @@ pre-css------> css----->post-css
 `gulp-sass`,
 `gulp-autoprefixer`,
 `gulp-clean-css`(之前叫做`gulp-minify-css`),
-
-
 然后使用
 ## scripts处理
+
+
 ## images处理
 
 ## 输出mian.js,main.min.js两份js
-## 合并css，js
+
+## 合并css/js
+
+## 如何区分dev,production
+
+## 开发的时候使用浏览器
 
