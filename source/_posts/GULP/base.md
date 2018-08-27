@@ -121,10 +121,94 @@ gulp.task(
 
 ```
 
-# gulp.dest(path)
+# gulp.dest(path):写入数据
 写入pipe过来的数据，并re-emit数据(这样就可以实现输出到多个目录)
 
-# 
+# gulp.task([name],fn):定义task
+定义一个暴露给gulp-cli的task
+
+
+
+## [name]
+
+task名称
+
+可以省略，如果身略了，那么默认会使用函数名(或者给函数定义一个displayName属性)，因为这个name是需要在命令行中运行的，所以不能含有空格
+
+## fn
+任务具体函数，该函数需要注意
+
+
+常见的格式
+
+```
+function someTask() {
+  return gulp.src(['some/glob/**/*.ext']).pipe(someplugin());
+}
+someTask.description = 'Does something';
+
+gulp.task(someTask)
+```
+
+由于gulp中所有的任务是异步的，所以，该函数的第一个参数是回调函数，当任务执行完成后，需要执行该回调函数来发出完成信号
+
+但是，也可以通过返回steam,promise来发出一个完成信号
+
+示例:
+```sync
+function test(){
+}
+gulp.task(test);//会报错
+
+```
+```callback
+gulp.task('clean', function(done) {
+  del(['.build/'], done);
+});
+
+```
+stream
+```
+gulp.task('somename', function() {
+  return gulp.src('client/**/*.js')
+    .pipe(minify())
+    .pipe(gulp.dest('build'));
+});
+```
+promise
+```
+gulp.task('clean', function() {
+  return new Promise(function (resolve, reject) {
+    del(['.build/'], function(err) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
+      }
+    });
+  });
+});
+```
+
+
+
+
+
+### fn.name
+函数名称，这个名称会在task中的name没写的时候，当作name使用
+### fn.displayName
+如果task中的name没写，并且fn函数是匿名函数的话，那么就需要定义该属性来表示name
+### fn.discription
+任务的描述，但是我本地测试没有成功
+
+
+
+
+
+
+
+
+
 
 
 
@@ -152,13 +236,10 @@ pre-css------> css----->post-css
 `gulp-clean-css`(之前叫做`gulp-minify-css`),
 
 
-
-
-
-
 然后使用
 ## scripts处理
 ## images处理
 
 ## 输出mian.js,main.min.js两份js
+## 合并css，js
 

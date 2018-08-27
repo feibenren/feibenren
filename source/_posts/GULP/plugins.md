@@ -129,3 +129,7 @@ gulp.src('*.js')
 gulp.src(['a.js','b.js','c.js'])
 ```
 
+
+#gulp-imagemin
+压缩图片
+
