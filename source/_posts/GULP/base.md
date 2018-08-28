@@ -276,11 +276,118 @@ pre-css------> css----->post-css
 
 ## images处理
 
-## 输出mian.js,main.min.js两份js
+## 输出main.js,main.min.js两份js
 
 ## 合并css/js
 
 ## 如何区分dev,production
 
 ## 开发的时候使用浏览器
+
+```
+const gulp = require("gulp");
+const config = require("./gulp/config.js");
+const plugins = require("gulp-load-plugins")();
+const del = require("del");
+
+var server = require("browser-sync").create();
+var reload = server.reload;
+
+const dist = "dist";
+const tmp = ".tmp";
+const src = "src";
+const config = {
+  tmp, //零时总目录
+  dist, //输出总目录
+  html: {
+    src: `${src}/*.html`,
+    tmp: `${tmp}`,
+    dist: `${dist}`
+  },
+  styles: {
+    src: `${src}/styles/*.less`,
+    tmp: `${tmp}/styles/`,
+    dist: `${dist}/styles/`
+  },
+  scripts: {
+    src: `${src}/scripts/*.js`,
+    tmp: `${tmp}/scripts/`,
+    dist: `${dist}/scripts/`
+  },
+  images: {
+    src: `${src}/images/*.*`,
+    tmp: `${tmp}/images/`,
+    dist: `${dist}/images/`
+  }
+};
+
+gulp.task("styles", () => {
+  return gulp
+    .src(config.styles.src)
+    .pipe(plugins.less())
+    .pipe(
+      plugins.autoprefixer({
+        browers: ["last 1 version"]
+      })
+    )
+    .pipe(plugins.cleanCss())
+    .pipe(gulp.dest(config.styles.tmp))
+    .pipe(reload({ stream: true }));
+});
+
+gulp.task("scripts", () => {
+  return gulp
+    .src(config.scripts.src)
+    .pipe(plugins.babel())
+    .pipe(gulp.dest(config.scripts.tmp))
+    .pipe(reload({ stream: true }));
+});
+gulp.task("images", () => {
+  return gulp
+    .src(config.images.src)
+    .pipe(plugins.imagemin())
+    .pipe(gulp.dest(config.images.tmp))
+    .pipe(reload({ stream: true }));
+});
+gulp.task("clean", () => {
+  return del([config.dist, config.tmp]);
+});
+gulp.task("html", () => {
+  return gulp
+    .src(config.html.src)
+    .pipe(gulp.dest(config.html.tmp))
+    .pipe(reload({ stream: true }));
+});
+
+gulp.task(
+  "serve",
+  gulp.series(
+    "clean",
+    gulp.parallel("styles", "scripts", "html", "images"),
+    cb => {
+      server.init({
+        server: config.tmp
+      });
+      gulp.watch(config.styles.src, gulp.parallel("styles"));
+      gulp.watch(config.scripts.src, gulp.parallel("scripts"));
+      gulp.watch(config.html.src, gulp.parallel("html"));
+      gulp.watch(config.images.src, gulp.parallel("images"));
+      cb();
+    }
+  )
+);
+
+gulp.task(
+  "build",
+  gulp.series(
+    "clean",
+    gulp.parallel("html", "styles", "images", "scripts"),
+    () => {
+      return gulp.src(config.tmp + "/**/*").pipe(gulp.dest(config.dist));
+    }
+  )
+);
+
+
+```
 
