@@ -18,12 +18,19 @@ categories:
 
 
 
+# 如何用原生js模拟promise???
+
+
+
 
 # Promise对象是一个构造函数，用来生成Promise实例
 
 **所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果**
 
 **从语法上说，Promise 是一个对象，从它可以获取异步操作的消息**
+
+
+使用then方法添加回调函数
 
 
 Promise构造函数接受一个函数作为参数，该函数的两个参数分别是resolve和reject。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。

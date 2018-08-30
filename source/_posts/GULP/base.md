@@ -391,3 +391,29 @@ gulp.task(
 
 ```
 
+## COMMONJS在gulp中的实现
+这里使用`browserify`来实现commonjs,`gulp-bro`插件对`browserify`实现了包装
+```
+gulp.task("scripts", () => {
+  return gulp
+  .src(config.scripts.main)
+  .pipe(plugins.babel())
+  .pipe(plugins.bro())
+  .pipe(gulp.dest(config.scripts.tmp))
+  .pipe(reload({ stream: true }));
+});
+```
+
+## AMD在gulp中的实现
+直接使用`require.js`来实现，因为`require.js`仅仅是一个`module loader`,所以可以直接加载,gulp反而不需要配置，只需要转码
+
+```
+gulp.task("scripts", () => {
+  return gulp
+  .src(config.scripts.main)
+  .pipe(plugins.babel())
+  .pipe(gulp.dest(config.scripts.tmp))
+  .pipe(reload({ stream: true }));
+});
+```
+
