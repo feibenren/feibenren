@@ -1,7 +1,7 @@
 ---
 title: cookie
 categories: 
-- JAVASCRIPT
+- ES5
 ---
 
 # cookie

@@ -2,7 +2,7 @@
 title: classList
 categories: 
 
-- JAVASCRIPT
+- ES5
 
 
 ---

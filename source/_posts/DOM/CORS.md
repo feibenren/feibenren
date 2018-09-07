@@ -2,7 +2,7 @@
 title: CORS
 categories: 
 
-- JAVASCRIPT
+- ES5
 
 
 ---

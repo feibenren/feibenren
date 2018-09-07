@@ -2,7 +2,7 @@
 title: element
 categories: 
 
-- JAVASCRIPT
+- ES5
 
 
 ---

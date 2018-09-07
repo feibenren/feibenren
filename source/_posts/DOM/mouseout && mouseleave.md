@@ -2,7 +2,7 @@
 title: mouseout && mouseleave
 categories: 
 
-- JAVASCRIPT
+- ES5
 
 
 ---

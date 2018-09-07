@@ -2,7 +2,7 @@
 title: comet
 categories: 
 
-- JAVASCRIPT
+- ES5
 
 
 ---

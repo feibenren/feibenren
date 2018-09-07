@@ -2,7 +2,7 @@
 title: history
 categories: 
 
-- JAVASCRIPT
+- ES5
 
 
 ---

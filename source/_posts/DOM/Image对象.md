@@ -2,7 +2,7 @@
 title: Image对象
 categories: 
 
-- JAVASCRIPT
+- ES5
 
 
 ---

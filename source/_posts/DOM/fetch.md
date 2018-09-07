@@ -2,7 +2,7 @@
 title: fetch
 categories: 
 
-- JAVASCRIPT
+- ES5
 
 
 ---
