@@ -1,20 +1,154 @@
 ---
 title: promise
 categories: 
-
 - ES6
-
-
 ---
 
 
-# 如何执行异步代码？
+# promise
+异步函数的编程麻烦，社区出现了很多解决方案，promise就是其中一个，后被写入标准
+
+promise是一种 **代码结构**，可以使得异步代码更简洁，可维护
+
+# 语法
+
+```
+//创建一个构造函数
+let p=new Promise((resolve,reject)=>{
+  if(true){
+    resolve();
+  }else{
+    reject();
+  }
+});
+```
+Promise构造函数的参数是一个函数，该函数的两个参数是系统提供的，这两个参数是两个函数，执行第一个参数函数，可以使该promise状态由pending->resolved,如果执行了第二个参数，那么promise的状态由pending->rejected
+
+
+# Promise.protype.then(resolve,reject?)
+
+promise中意义最大的就是可以改变 **回调地狱**,以前需要通过回调函数传 **‘下一步’**，而promise则可以通过 **then来传递‘下一步’**
+
+promise中的执行不同的参数函数，只是改变了状态，但是状态的改变会有什么影响？
+
+影响出现在then函数中:
+
+then函数接收两个参数函数，如果promise的状态是resolved,那么then就会执行第一个函数，如果rejected，那么then就会执行第二个函数(绝大多数情况下，不传递第二个参数，有更好的解决方法:catch)
 
 
 
-浏览器端的异步操作的常见情况
-- 定时器
-- ajax加载数据
+# Promise.protype.catch(err)
+
+promise中如果出现了错误，可以使用`p.then(null,reject)`来捕获错误，而catch就是其简写方法，这样意图更明确
+
+但是这个地方需要注意的是，catch不仅仅捕获rejected错误，而且捕获常规错误,这可能会给排查错误带来麻烦
+
+```
+let p=new Promise((resolve,reject)=>{
+  wrong_code;
+})
+p.catch(err=>{
+  console.log(err)
+})
+```
+
+# Promise.protype.finally()
+无论如何都会执行的函数，其实就相当于 `then(fn,fn)`,es2018引入
+
+
+
+# 链条
+
+
+
+
+注意，then,catch方法都返回原来的promise对象，因此可以链式使用
+
+
+# 组合 
+
+then,catch,finally这三个基本的方法就是promise的基本
+
+
+还有很多其他常见情况，promise也有对应的解决方案
+
+#### Promise.all([p1,p2,p3]),Promise.race([p1,p2,p3])
+
+这两个方法会返回一个新的promise，表示组合的promise
+
+两者的区别在于，
+- all:所有的状态都resolved，那么新的promise才是resolved，如果有一个rejected，那么这个新的promise，就是rejected,**也就是数组中所有的promise都执行完毕，才会确定新promise的状态**
+- race:和all的逻辑不同，新的promise的状态和数组中的第一个改变状态的promise相同,**也就是说，数组中的promise第一个状态改变，就可以确定新的promise的状态**
+
+# 直接获得状态确定的promise:
+
+
+
+其实还有一种需求:如果一个函数默认返回promise，那么在错误的时候，也应该返回rejected的promise,这样方便初处理，示例：
+
+```
+function loadImg(url){
+  if(!url){
+    return Promise.reject(e)
+  }
+  return new Promise()
+}
+```
+同样，有时候我们也需要返回直接resolved的promise
+
+```
+function loadImg(url_obj){
+  if(url_obj.is_loaded){
+    return Promise.resolve(url.src);
+  }
+  return new Promise();
+}
+```
+
+使用Promise.resolve(),Promise.reject()这两个函数实现以上功能
+
+
+
+
+# 弊端
+
+- 一旦在一个地方使用了promise，那么可能整段代码，整个项目都需要使用promise
+
+- catch捕获所有的错误，不分rejected和常规错误
+
+- promise不适合长组合的太长，这样逻辑会很混乱，如果处理的逻辑很复杂，最好就是分成小的部分
+
+
+
+
+
+
+
+# 链接
+- [https://github.com/mattdesl/promise-cookbook/blob/master/README.zh.md](https://github.com/mattdesl/promise-cookbook/blob/master/README.zh.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -23,31 +157,6 @@ categories:
 
 
 
-# Promise对象是一个构造函数，用来生成Promise实例
-
-**所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果**
-
-**从语法上说，Promise 是一个对象，从它可以获取异步操作的消息**
-
-
-使用then方法添加回调函数
-
-
-Promise构造函数接受一个函数作为参数，该函数的两个参数分别是resolve和reject。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。
-
-
-# Promise.prototype.then()
-**它的作用是为 Promise 实例添加状态改变时的回调函数**
-
-then方法返回的是一个新的Promise实例（注意，不是原来那个Promise实例）。因此可以采用链式写法，即then方法后面再调用另一个then方法
-
-```
-p.then().then()
-//虽然then返回的是一个promise，但是头一个then返回的promise没有设定resolve，reject，所以，第一个then执行完成后，第二个then会立即执行
-//如何实现第一个then里面函数执行完成后过一段时间再执行第二个then呢？再第一个then里面继续返回一个自己设定的promise
-```
-
-**第一个回调函数完成以后，会将返回结果作为参数，传入第二个回调函数**
 
 
 # 缺点
