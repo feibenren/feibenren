@@ -5,6 +5,7 @@
 * [Introduction](README.md)
 * [HTML5](./HTML/HTML5/README.md)
   * [canvas](HTML/HTML5/canvas.md)
+  * [document](HTML/HTML5/document.md)
 
 ## JAVASCRIPT
 
