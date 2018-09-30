@@ -2,31 +2,21 @@
 
 ## HTML
 
-* [README](README.md)
-* [HTML5](./HTML/HTML5/README.md)
-  * [canvas](HTML/HTML5/canvas.md)
-  * [document](HTML/HTML5/document.md)
-  * [99999](HTML/HTML5/myrtest.md)
+* [README](./README.md)
 
 ## JAVASCRIPT
+* [ES5](./JAVASCRIPT/ES5/README.md)
+  * [Date](./JAVASCRIPT/ES5/Date.md)
+  * [Error](./JAVASCRIPT/ES5/Error.md)
+  * [Function](./JAVASCRIPT/ES5/Function.md)
+  * [promise](./JAVASCRIPT/ES5/promise.md)
 
-* [BOM](./JAVASCRIPT/BOM/README.md)
-* [DOM](./JAVASCRIPT/DOM/README.md)
+* [ES6](./JAVASCRIPT/ES6/README.md)
   * [DOM](./JAVASCRIPT/DOM/README.md)
   * [DOM](./JAVASCRIPT/DOM/README.md)
   * [DOM](./JAVASCRIPT/DOM/README.md)
   * [DOM](./JAVASCRIPT/DOM/README.md)
-    * [DOM](./JAVASCRIPT/DOM/README.md)
-    * [DOM](./JAVASCRIPT/DOM/README.md)
-    * [DOM](./JAVASCRIPT/DOM/README.md)
-    * [DOM](./JAVASCRIPT/DOM/README.md)
-    * [DOM](./JAVASCRIPT/DOM/README.md)
-    * [DOM](./JAVASCRIPT/DOM/README.md)
-      * [DOM](./JAVASCRIPT/DOM/README.md)
-      * [DOM](./JAVASCRIPT/DOM/README.md)
-      * [DOM](./JAVASCRIPT/DOM/README.md)
-      * [DOM](./JAVASCRIPT/DOM/README.md)
-
+   
 ## FRAMEWORK
 
 * [VUE](./JAVASCRIPT/BOM/README.md)
