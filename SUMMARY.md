@@ -5,17 +5,15 @@
 * [README](./README.md)
 
 ## JAVASCRIPT
-* [ES5](./JAVASCRIPT/ES5/README.md)
-  * [Date](./JAVASCRIPT/ES5/Date.md)
-  * [Error](./JAVASCRIPT/ES5/Error.md)
-  * [Function](./JAVASCRIPT/ES5/Function.md)
-  * [promise](./JAVASCRIPT/ES5/promise.md)
+* [ES5](ES5/README.md)
+  * [Date](ES5/Date.md)
+  * [Error](ES5/Error.md)
+  * [Function](ES5/Function.md)
 
-* [ES6](./JAVASCRIPT/ES6/README.md)
-  * [DOM](./JAVASCRIPT/DOM/README.md)
-  * [DOM](./JAVASCRIPT/DOM/README.md)
-  * [DOM](./JAVASCRIPT/DOM/README.md)
-  * [DOM](./JAVASCRIPT/DOM/README.md)
+
+* [ES6](ES6/README.md)
+  * [promise](ES6/promise.md)
+  * [Iterator](ES6/Iterator.md)
    
 ## FRAMEWORK
 
