@@ -1,8 +1,8 @@
 ---
 title: flex
 categories: 
-
-- CSS3
+- CSS
+- LAYOUT
 
 ---
 

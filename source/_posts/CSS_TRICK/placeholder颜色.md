@@ -1,7 +1,7 @@
 ---
 title: placeholder颜色
 categories: 
-- CSS3
+- CSS
 ---
 
 # placeholder颜色

@@ -1,8 +1,8 @@
 ---
-title: css基础
+title: README
 categories: 
 
-- CSS3
+- CSS
 
 ---
 
@@ -176,7 +176,7 @@ section、 article、nav 等HTML5 元素。
 CSS 选择符。
 - IE9.js（http://code.google.com/p/ie7-js）：修复从IE6 到IE9 的很多bug 和缺损
 功能。
-- CSS3Pie（http://css3pie.com）：让IE6 到IE9 支持圆角、背景渐变、边框图片、盒
+- CSSPie（http://css3pie.com）：让IE6 到IE9 支持圆角、背景渐变、边框图片、盒
 阴影、RGBa 颜色等可视化的CSS3 功能。
 - Respond.js（https://github.com/scottjehl/respond）让旧版本浏览器支持媒体查询。
 - -prefix-free（http://lea.verou.me/projects）为需要厂商前缀的CSS3 声明添加前缀（参

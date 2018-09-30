@@ -1,7 +1,7 @@
 ---
 title: select三角
 categories: 
-- CSS3
+- CSS
 ---
 
 # 修改select 默认三角
