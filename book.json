@@ -1,0 +1,24 @@
+{
+  "title": "feibenren blog",
+  "description": "descriptiondescriptiondescriptiondescription",
+  "author": "feibenren",
+  "foo": "ffffff",
+  "variables": {
+    "hello": "everyone"
+  },
+  "styles": {
+    "website": "style.css"
+  },
+  "links": {
+    "sidebar": {
+      "Custom link name": "https://xiaohuochai.site"
+    },
+    "sharing": {
+      "google": null,
+      "facebook": null,
+      "twitter": null,
+      "weibo": null,
+      "all": null
+    }
+  }
+}

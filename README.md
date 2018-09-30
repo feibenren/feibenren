@@ -1,5 +1,2 @@
-# blog
-我自己的blog
+# FEIBENREN SUMMARY
 
-dev:md源文件
-master:生成后的静态页面

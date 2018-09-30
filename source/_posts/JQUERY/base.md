@@ -1,8 +1,0 @@
----
-title: base
-categories: 
-- JQUERY
----
-
-# $()
-- 
