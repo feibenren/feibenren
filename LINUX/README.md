@@ -51,7 +51,7 @@ categories:
 ## bash
 
 
-shell本质上就是一个软件， 有很多，比较出名的就是shell和bash了
+shell本质上就是一个软件， 有很多，比较出名的就是shell.exe和bash.exe了
 
 1、unix系统，自带了一个命令解析器，叫做shell，是一个叫做Bourne的人开发的
 
@@ -63,6 +63,11 @@ bash 有很多快捷键,常见的有
 
 - ctrl+e:回到尾
 - ctrl+a：回到头
+
+
+操作系统只需要提供一些常见的操作封装成函数，用户只需要在shell中输入对应的函数，就可以执行操作了
+
+linux中大部分的命令由此而来
 
 
 # 目录和文件
@@ -89,7 +94,7 @@ linux常见的目录
 
 
 
-
+# 常见命令
 
 - mkdir(make directory):创建目录
 - cd(change directory):目录跳转
