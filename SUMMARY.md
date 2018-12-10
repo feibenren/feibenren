@@ -4,7 +4,7 @@
 
 * [README](./README.md)
 
-## JAVASCRIPT
+## ECMASCRIPT
 * [ES5](ES5/README.md)
   * [Object](ES5/Object.md)
   * [Array](ES5/Array.md)
@@ -25,8 +25,7 @@
   * [Iterator](ES6/Iterator.md)
 
 * [WEBAPI](ES6/README.md)
-  * [promise](ES6/promise.md)
-  * [Iterator](ES6/Iterator.md)
+  * [BOM](BOM/README.md)
    
 
 
