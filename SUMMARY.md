@@ -18,27 +18,32 @@
   * [语句&表达式](ES5/语句&表达式.md)
   * [回调](ES5/回调.md)
   * [作用域](ES5/作用域.md)
-  * [作用域](ES5/作用域.md)
 
 
 * [ES6](ES6/README.md)
   * [promise](ES6/promise.md)
   * [Iterator](ES6/Iterator.md)
+
+* [WEBAPI](ES6/README.md)
+  * [promise](ES6/promise.md)
+  * [Iterator](ES6/Iterator.md)
    
+
+
 ## FRAMEWORK
 
-* [VUE](./JAVASCRIPT/BOM/README.md)
-* [REACT](./JAVASCRIPT/BOM/README.md)
-* [ANGULAR](./JAVASCRIPT/BOM/README.md)
-* [ELECTROM](./JAVASCRIPT/BOM/README.md)
+* [VUE](./JAVASCRIPT/VUE/README.md)
+* [REACT](./JAVASCRIPT/REACT/README.md)
+* [ANGULAR](./JAVASCRIPT/ANGULAR/README.md)
+* [ELECTROM](./JAVASCRIPT/ELECTROM/README.md)
 
 ## TOOLS
 
 
-* [GIT](./JAVASCRIPT/BOM/README.md)
-* [GULP](./JAVASCRIPT/BOM/README.md)
-* [WEBPACK](./JAVASCRIPT/BOM/README.md)
-* [BABEL](./JAVASCRIPT/BOM/README.md)
+* [GIT](./JAVASCRIPT/GIT/README.md)
+* [GULP](./JAVASCRIPT/GULP/README.md)
+* [WEBPACK](./JAVASCRIPT/WEBPACK/README.md)
+* [BABEL](./JAVASCRIPT/BABEL/README.md)
 
 ## LINUX
 
