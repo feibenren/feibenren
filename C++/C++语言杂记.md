@@ -7,41 +7,9 @@ categories:
 # 在线c环境
 [https://studio.dev.tencent.com](https://studio.dev.tencent.com)
 
-# 指针
 
-```
-int main(){
-    int a=1;
-    print("&a:%p",&a);//&,获得a变量的内存地址，也就是指针
-    print("*&a:%p",*&a);//*&,获得内存地址中存储的数值，和直接打印a效果一样
-    return 0;
-}
-```
-# 多种初始化变量的方式
-
-```
-int a=1;
-int b(2);
-int c={3};
-int d{4};
-
-```
-
-# C风格的字符串
-
-- 双引号引起
-- 末尾添加`\0`表示结尾
 
 # 变量类型
-基本就两类，数字类型，字符类型，
-
-- 数字类型 
-    - int
-    - float
-    - double
-- 字符类型
-    - char
-
 
 
 注意，C++中并没有明确一个字符类型占用几个字节，一个int到底占用几个字节，这些都由编译环境决定，只有 ` double应该大于float`这种类似规定，这个和js，php，java很不一样
