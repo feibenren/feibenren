@@ -93,8 +93,16 @@ linux常见的目录
 - /var 系统相关文档内容
 
 
+## 常见命令
 
-# 常见命令
+命令很多，归纳为三大类
+
+- 文件管理
+- 用户和权限
+- 系统管理
+
+
+# 文件管理
 
 - mkdir(make directory):创建目录
 - cd(change directory):目录跳转
@@ -113,20 +121,11 @@ linux常见的目录
 - tree:显示目录树(需要安装)
 - ln(link):创建链接
 
-
-# cp
-
-```
- cp [OPTION] SOURCE DEST 
-```
-- a:same as -dR --preserve=all,保留文件修改时间等所有信息
+# 用户和权限
+# 系统管理
 
 
-# ln
 
-```
-ln [OPTION] TARGET LINK_NAME
-```
-- s :创建软连接(需要使用绝对路径)
+
 
 
