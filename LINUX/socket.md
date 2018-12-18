@@ -1,5 +1,5 @@
 ---
-title: 进程
+title:socket 
 categories: 
 - LINUX
 ---
