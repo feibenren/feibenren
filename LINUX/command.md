@@ -67,3 +67,12 @@ linux命令很多，简单归纳为
 
 等
 
+# pipe
+
+# find
+
+# grep
+
+# p
+
+# 
