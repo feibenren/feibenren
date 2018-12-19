@@ -46,4 +46,17 @@
 
 ## LINUX
 
-* [LINUX](./JAVASCRIPT/BOM/README.md)
+* [LINUX](./LINUX/README.md)
+  * [directory](./LINUX/directory.md)
+  * [link](./LINUX/link.md)
+  * [command](./LINUX/command.md)
+  * [shell](./LINUX/shell.md)
+  * [command](./LINUX/command.md)
+  * [vim](./LINUX/vim.md)
+  * [gcc](./LINUX/gcc.md)
+  * [process](./LINUX/process.md)
+  * [thread](./LINUX/thread.md)
+  * [lock](./LINUX/lock.md)
+  * [deamond](./LINUX/deamond.md)
+  * [singal](./LINUX/singal.md)
+  * [socket](./LINUX/socket.md)

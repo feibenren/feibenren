@@ -1,10 +1,7 @@
 ---
 title: history
 categories: 
-
 - ES5
-
-
 ---
 
 
