@@ -1,6 +1,5 @@
 ---
 title: HTTPS
 categories:
-- CRYPT
+- NETWORK
 ---
-
