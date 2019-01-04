@@ -7,6 +7,7 @@ categories:
 - [简介](#简介)
 - [版本](#版本)
 - [开发](#开发)
+- [工具](#工具)
 - [helloworld](#helloworld)
 - [组织架构](#组织架构)
 
@@ -93,6 +94,13 @@ JDK针对不同的用途,分为
 - JAVA EE:Enterprise Edition ,企业版
 - JAVA ME:Micro Edition,微缩版
 
+# 工具
+
+常见的IDE是
+
+- `eclipse`:IBM做的免费工具
+- `myeclipse`:基于eclipse，制作了很多收费插件，打包售卖
+- `IDEA`:'java strom'
 
 
 

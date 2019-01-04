@@ -6,6 +6,7 @@ categories:
 
 - [BASE](/JAVA/#BASE)
 - [基本语法](/JAVA/#基本语法)
+- [String](/JAVA/#String)
 - [面向对象](/JAVA/#面向对象)
 - [继承和多态](/JAVA/#继承和多态)
 - [异常处理](/JAVA/#异常处理)

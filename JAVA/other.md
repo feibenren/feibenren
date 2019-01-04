@@ -12,11 +12,40 @@ categories:
 不是注释 
 
 安全检测，可选
-```
-@override
+
+给编译器看的
 ```
 
+ public  class calc {
+
+	public  void test() {
+		System.out.println(2);
+	};
+}
+
+class sum extends calc {
+
+	@Override
+	public void test() {
+		System.out.println(1);
+	}
+}
+
+```
+`@Override`可以检测下面的方法是不是真的正确的复写了父类的方法，如果不是，就报错
+
 # 静态代码块
+
+```
+ public  class calc {
+	 {
+         //这块就是静态代码块，只在对象生成的时候运行一次
+		int a=1; 
+	 }
+
+}
+
+```
 
 # Object 类 
 
@@ -36,7 +65,6 @@ categories:
 # 抽象类和接口
 # 同包不需要导入语句
 
-# eclipse ，myeclipse
 # javabean
 
 
