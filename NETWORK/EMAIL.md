@@ -66,7 +66,24 @@ base on TCP
 
 这个协议默认的端口是25
 
-但是注意，这个协议没有发送的具体内容的格式
+> 这个协议之是一个`push`协议，也就是只是推送
+
+应用层协议，格式一般如下:
+
+```
+From: "Tommy Lee" <lee@example.com>
+To: "Jack Zhang" <zhang@example.com>
+Subject: Test
+Date: Wed, 17 May 2000 19:08:29 -0400
+Message-ID: <NDBBIAKOPKHFGPLCODIGIEKBCHAA.lee@example.com>
+
+Hello World.
+```
+
+# 邮件正文
+
+
+但是注意，SMTP协议没有发送的具体内容的格式
 
 这个协议的格式中只有
 
@@ -74,12 +91,16 @@ base on TCP
 
 但是主体具体怎么写，没有规定，而是在另外一个规范中规定了,`RFC`
 
+> RFC就是`Request For Comments`备忘录，也就是一起开会定下的规定
+
 早期的RFC规定正文只能是ASCII码来写
 
 也就是说，邮件正文只能是英文字母，中文无法使用，并且无法加载二进制文件，这就造成了问题
 
-后来对RFC格式进行升级，可以携带所有数据类型，这就是 `多用途互联网邮件扩展（MIME，Multipurpose Internet Mail Extensions）` 
+后来对RFC格式进行升级，可以携带所有数据类型，这就是 `多用途互联网邮件扩展（MIME，Multipurpose Internet Mail Extensions）`-[MIME](./NETWORK/MIME.md)
 
 # POP3/IMAP
+
+>这两个协议，就是`pull`拉协议
 
 这个协议主要就是从收件箱服务器上将数据获取到本地的协议
