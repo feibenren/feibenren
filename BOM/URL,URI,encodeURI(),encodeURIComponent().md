@@ -50,7 +50,7 @@ http://www.baidu.com?key1=val1&key2=val2
 转码后的样子就是
 
 %2E%
-就是两种%号，中间是十六的两个字符
+就是两种%号，中间是十六进制的两个字符
 
 ```
 http%3A%2F%2Fwww.w3school.com.cn
