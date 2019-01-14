@@ -1,47 +1,63 @@
 ---
-title: 浏览器架构
+title: BROWSER-STRUCTOR
 categories: 
 - BROWSER
 ---
 
-- [base](#base)
 - [架构](#架构)
 - [browser进程](#browser进程)
 - [render进程](#render进程)
 - [GPU进程](#GPU进程)
 
-# base
 
-最早的浏览器只负责解析超文本,没有css，js，多tab等，哪个时候很简单，一个进程可以完成所有的事情
+# STRUCTOR
+
+主要分析一下浏览器的结构
+
+最早的浏览器只负责`解析超文本`和`处理http请求`,
+
+没有css，js，多tab等，那个时候很简单，一个进程可以完成所有的事情
 
 可以这样设计
 
 - Browser进程
-    - http请求线程
-    - 超文本解析线程
+    - http处理线程:专门处理http请求
+    - GUI线程:只需要处理html，转换成`bitmap`输入给显示器(当然可能需要另外开一个GPU的线程来加速渲染)
 
+> bitmap，这里简单说就是说是点阵图，位图
 
 后来加入了css，js，可以这样设计
+
 --------------------
+
 - Browser进程
-    - http请求线程：
-    - GUI解析线程:这个地方就不仅仅是解析html了，还有js和css
-    - js引擎线程:这个线程负责js的解析运行,一个线程还不够,这里只简单说
+    - http处理线程
+    - GUI线程:这个地方就不仅仅是解析html了，还有css
+    - js引擎线程:这个线程负责js的解析运行(一个线程还不够,这里只简单说)
 
-这里就有一个问题了，js引擎线程和GUI线程的关系?
+这里就有一个问题
 
-如果js修改了html或者css，那么GUI岂不是就白做了？还得重来
+GUI线程是用来渲染html和css,使其变成`bitmap`
 
-所以，这里GUI线程和js引擎是互斥的，一个运行，另一个就必须挂起
+如果js线程中运行的js修改了html或者css，那么GUI岂不是就白做了？还得重来
+
+
+所以，规定GUI线程和js引擎是互斥的，一个运行，另一个就必须挂起
 
 
 --------------------
 
 后来加入了多tab功能，那么该怎么设计?
 
-可以使用`浏览器是多进程，浏览器内核是多线程`实现
+思路是:
 
-这里有一个`浏览器内核`的概念
+一个Browser主进程，管理整个浏览器
+
+如果开了一个tab页面，就单独开除一个进程(这个进程一般叫做`render进程`)，这个tab页面由这个render进程负责
+
+render进程要做的事情很多，渲染html，css，运行js等，几乎做了浏览器所有的事情，所以，render进程也被称为`浏览器内核`
+
+-----------
 
 - Browser进程:
     - 界面展示管理，用户交互的线程
@@ -61,7 +77,6 @@ categories:
 
 
 
-一个tab页面对应一个render进程
 
 这里有一个问题,异步请求的线程为什么要存在？直接使用Browser进程来进行不就可以了吗？
 
@@ -70,16 +85,19 @@ categories:
 
 --------------------
 
-现在的浏览器，有了3D功能，就使用显卡来渲染页面，会增加一个进程`GPU进程`，加快渲染
+现在的浏览器，有了3D功能，就使用显卡来渲染页面，会增加一个进程`GPU进程`，加快渲染，GUI线程会和这个进程紧密配合，加快渲染速度
 
 还有插件，浏览器一个插件对应一个进程,所以插件装多了会很卡
 
 # chrome架构
 
+
 - Browser 进程:浏览器主进程,唯一一个
 - 第三方插件进程:一个第三方插件一个进程
 - GPU 进程:3D渲染,就一个
-- render 进程:渲染进程，一个tab页面一个，相互独立，
+- render 进程:渲染进程，一个tab页面一个，相互独立
+- render 进程:渲染进程，一个tab页面一个，相互独立
+- render 进程:渲染进程，一个tab页面一个，相互独立
 
 
 # chrome Browser 进程
@@ -116,12 +134,12 @@ categories:
 - GUI重新渲染,将结果传给Browser进程
 - Browser进程收到后，将位图展示在显示区域
 
--------------
 
-可见，现在的浏览器，几乎所有的处理都放到了render进程，这个进程也被称为`浏览器内核`
 
 
 
 # 链接
 - [https://mp.weixin.qq.com/s/whtgk3LShhgEhF5pMEpfYw](https://mp.weixin.qq.com/s/whtgk3LShhgEhF5pMEpfYw)
 - [https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
+- [http://taligarsiel.com/Projects/howbrowserswork1.htm](http://taligarsiel.com/Projects/howbrowserswork1.htm)
+- [https://coolshell.cn/articles/9666.html](https://coolshell.cn/articles/9666.html)

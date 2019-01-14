@@ -30,18 +30,10 @@ categories:
 
 # 细说
 
-- [浏览器架构](./CRYPT/浏览器架构.md)
-- [浏览器内核](./CRYPT/浏览器内核.md)
-- [浏览器](./CRYPT/浏览器.md)
-- [浏览器](./CRYPT/浏览器.md)
-- [浏览器](./CRYPT/浏览器.md)
-- [浏览器](./CRYPT/浏览器.md)
-- [浏览器](./CRYPT/浏览器.md)
-- [浏览器](./CRYPT/浏览器.md)
-- [浏览器](./CRYPT/浏览器.md)
-- [浏览器](./CRYPT/浏览器.md)
-- [浏览器](./CRYPT/浏览器.md)
-- [浏览器](./CRYPT/浏览器.md)
+- [STRUCTOR](./BROWSER/STRUCTOR.md)
+- [RENDER](./BROWSER/RENDER.md)
+- [GUI](./BROWSER/GUI.md)
+- [JS](./BROWSER/JS.md)
 
 # base
 
