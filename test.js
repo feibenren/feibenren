@@ -1,4 +1,3 @@
-var arr=[];
-arr[1]=1;
-arr[2]=1;
-arr[3]=1;
+var a=1;
+var b=a+2;
+console.log(b);
