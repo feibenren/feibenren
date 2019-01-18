@@ -1,5 +1,5 @@
 ---
-title: 选择符
+title: SELECTOR
 categories: 
 - CSS
 ---
