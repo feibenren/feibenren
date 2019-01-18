@@ -37,7 +37,8 @@ Grid 布局的基本元素是行（row）和列（column）。行与行之间、
 
 - grid-area:属性指定项目放在哪一个区域
 - grid-column:指定单元格纵向占据从第 n 根线到第 m 根线
-- grid-row:指定单元格横向占据从第 n 根线到第 m 根线
+- grid-row:指定单元格横向占据从第 n 根线到第 m 根线(grid-column-start,grid-column-start的组合属性)
+
 
 # 链接
 
