@@ -25,11 +25,17 @@ categories:
 
 ### 目标是什么？
 
-高内聚，低耦合
+- 中意于组合而不是继承
+- 依赖于接口而不是实现
+- 高内聚，低耦合。
 
 ### 局限性
 
-这些设计模式是基于面向对象总结出来的，面向过程适不适合不得而知
+23个设计模式现在都是用OO(面向对象)的方式来实现的，但是
+
+`设计模式是套路，和OO没有一点关系，只不过用OO表示比较方便而已`
+
+
 
 
 ### 具体内容是什么？
@@ -130,3 +136,16 @@ categories:
 - 21[工厂模式](#工厂模式)
 - 22[工厂模式](#工厂模式)
 - 23[工厂模式](#工厂模式)
+
+
+
+
+# links
+- [https://www.cnblogs.com/pony1223/p/7608955.html](https://www.cnblogs.com/pony1223/p/7608955.html)
+- [http://www.runoob.com/design-pattern/design-pattern-intro.html](http://www.runoob.com/design-pattern/design-pattern-intro.html)
+-[https://coolshell.cn/articles/8745.html](https://coolshell.cn/articles/8745.html)
+-[https://coolshell.cn/articles/8961.html](https://coolshell.cn/articles/8961.html)
+-[]()
+-[]()
+-[]()
+-[]()

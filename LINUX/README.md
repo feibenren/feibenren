@@ -119,3 +119,8 @@ linux操作系统是用C语言写的，所以提供的接口也都是C语言的�
 
 #常见名词
 
+
+
+# LINKS
+- [https://coolshell.cn/articles/2322.html](https://coolshell.cn/articles/2322.html)
+- [https://coolshell.cn/articles/2324.html](https://coolshell.cn/articles/2324.html)
