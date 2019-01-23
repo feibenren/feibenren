@@ -3,6 +3,14 @@ title: 工厂模式(Factory Pattern)
 categories: 
 - 设计模式
 ---
+# 问题
+
+# 解决方案
+## java
+## javascript
+
+# 总结
+
 
 有这样一个需求
 

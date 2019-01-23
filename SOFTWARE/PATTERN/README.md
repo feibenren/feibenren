@@ -145,7 +145,7 @@ categories:
 - [http://www.runoob.com/design-pattern/design-pattern-intro.html](http://www.runoob.com/design-pattern/design-pattern-intro.html)
 -[https://coolshell.cn/articles/8745.html](https://coolshell.cn/articles/8745.html)
 -[https://coolshell.cn/articles/8961.html](https://coolshell.cn/articles/8961.html)
--[]()
+-[https://www.w3cschool.cn/zobyhd/yj238ozt.html](https://www.w3cschool.cn/zobyhd/yj238ozt.html)
 -[]()
 -[]()
 -[]()
