@@ -4,13 +4,11 @@ categories:
 - 设计模式
 ---
 
+# 场景
+有时候`全局只希望只有唯一一个对象`，可能是性能，操作正确性(比如操作文件，数据库)等方面考虑
 
-有时候我们希望一个类，只能有一个实例对象，比如操作文件的时候，就必须只有一个，这样才能保证正确，多个对象同时操作一个对象，会乱掉
-
-同时，能用一个对象做，就没必要创建多个对象，性能不高
-
-这个实现很简单
-
+# 解决方案
+## java
 
 ```
 package test;
@@ -33,7 +31,25 @@ public class Single{
 
 
 ```
+## javascript
+
+```
+functin Person{
+	if(this.instance){
+		return this.instance;
+	}
+	this.instance={
+		name:111,
+		age:222
+	};
+	return this.instance;
+}
+```
+
+# 总结
+
+
+
+----------------
 
 还有问题，多线程怎么办？？？
-
-暂且不说
