@@ -1,9 +1,7 @@
 ---
 title: YAML
 categories: 
-
 - OTHER
-
 ---
 
 YAML 语言（发音 /ˈjæməl/ ）的设计目标，就是方便人类读写。它实质上是一种通用的数据串行化格式。
@@ -24,6 +22,8 @@ YAML 支持的数据结构有三种。
 
 
 
+```
 {% blockquote [author[, source]] [link] [source_link_title] %}
 content
 {% endblockquote %}
+```
