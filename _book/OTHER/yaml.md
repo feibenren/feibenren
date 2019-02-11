@@ -21,9 +21,3 @@ YAML 支持的数据结构有三种。
 - 纯量（scalars）：单个的、不可再分的值
 
 
-
-```
-{% blockquote [author[, source]] [link] [source_link_title] %}
-content
-{% endblockquote %}
-```
