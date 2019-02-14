@@ -1,5 +1,5 @@
 ---
-title: BROWSER-GUI
+title: GUI
 categories: 
 - BROWSER
 ---
@@ -53,6 +53,7 @@ js修改，resize窗口，等操作，gui就得重新渲染
 
 
 
+
 ### js修改了dom结构，会怎么办？
 
 会重新渲染整个页面吗？
@@ -96,11 +97,12 @@ css，js在实现的时候，尽量都少走`layout`，尽量多走`paint`
 5.最复杂的一种：获取某些属性，引发回流，
 很多浏览器会对回流做优化，会等到数量足够时做一次批处理回流，
 但是除了render树的直接变化，当获取一些属性时，浏览器为了获得正确的值也会触发回流，这样使得浏览器优化无效，包括
-    （1）offset(Top/Left/Width/Height)
-     (2) scroll(Top/Left/Width/Height)
-     (3) cilent(Top/Left/Width/Height)
-     (4) width,height
-     (5) 调用了getComputedStyle()或者IE的currentStyle
+
+- （1）offset(Top/Left/Width/Height)
+-  (2) scroll(Top/Left/Width/Height)
+-  (3) cilent(Top/Left/Width/Height)
+-  (4) width,height
+-  (5) 调用了getComputedStyle()或者IE的currentStyle
 
 # 哪些会引发 repaint?
 

@@ -3,8 +3,11 @@ title: location
 categories: 
 - BOM
 ---
-
 # location
+
+location对象表示的是`URL`，window.location,document.location，都指向这个对象
+
+具体内容:
 
 ```
 {

@@ -1,11 +1,73 @@
 ---
-title: element
+title: ELEMENT
 categories: 
-
-- ES5
-
-
+- DOM
 ---
+
+# ELEMENT
+
+ELEMENT对象是所有的html元素的基对象
+
+但是所有的html元素对象并不是直接继承自ELEMENT,而是`HTMLElement`
+
+
+# HTMLElement
+
+HTMLElement这个类型主要添加了一些属性
+
+- id
+- className
+- title
+- .......
+
+# 属性
+
+- getAttribute()
+- setAttribute()
+- removeAttribute()
+- ELEMENT.CommonAttribute
+- ELEMENT.attributes
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # 属性

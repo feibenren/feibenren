@@ -1,5 +1,0 @@
----
-title: HTTPS
-categories:
-- NETWORK
----

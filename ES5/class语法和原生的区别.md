@@ -1,10 +1,7 @@
 ---
 title: class语法和原生的区别
 categories: 
-
 - ES5
-
-
 ---
 
 ```

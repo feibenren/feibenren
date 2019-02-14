@@ -1,5 +1,5 @@
 ---
-title: 浏览器内核
+title: RENDER
 categories: 
 - BROWSER
 ---
@@ -32,7 +32,6 @@ render进程内部是多线程的，常见的有
 - Browser 进程发送请求后，新建render进程，render进程接手
 - 收到接收到的数据(html)后，交由GUI线程进行解析，渲染
 - GUI解析到资源文件(img,css,js等),一个资源对应新建一个请求线程，发送请求
-
 
 
 
