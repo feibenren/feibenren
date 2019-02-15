@@ -365,16 +365,7 @@ HTML5 扩展了HTMLDocument，增加了新的功能
 - insertAdjacentHTML()
 - element.scrollIntoView():让element出现在视野中
 
-## 专有扩展
-没有被列入标准的，浏览器厂家自己添加的功能
-- 文档模式
-ie8引入的一个概念，简单说就是说决定css用哪个级别的，js可以使用哪些api
-```
-<meta http-equiv="X-UA-Compatible" content="IE=IEVersion">
-```
-- children:
-- element.contains()
-- innerText,
+
 
 
 
@@ -382,6 +373,7 @@ ie8引入的一个概念，简单说就是说决定css用哪个级别的，js可
 对DOM1的补充：
 - getComputedStyle()
 - 元素大小
+
 ## 元素大小
 DOM中没有规定如何确定页面中元素的大小
 - 偏移量:元素在屏幕上占用的所有可见的空间

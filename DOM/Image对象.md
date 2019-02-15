@@ -1,10 +1,7 @@
 ---
 title: Image对象
 categories: 
-
-- ES5
-
-
+- DOM
 ---
 
 

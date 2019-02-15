@@ -1,7 +1,0 @@
----
-title: O
-categories: 
-- DATASTRUCTOR
----
-
-

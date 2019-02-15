@@ -46,6 +46,7 @@ HTMLCollection从字面表示是`html的集合`,和NodeList的区别是`HTMLColl
 
 - getElementsByTagName()
 - document.anchors,document.forms,document.images,document.links
+- ELEMENT.children
 
 # NamedNodeMap
 

@@ -1,10 +1,7 @@
 ---
 title: 事件
 categories: 
-
-- ES5
-
-
+- DOM
 ---
 
 
