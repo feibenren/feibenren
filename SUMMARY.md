@@ -1,4 +1,6 @@
-## C
+* [COMPUTER](./COMPUTER/README.md)
+  * [CHASET](./COMPUTER/CHASET.md)
+  * [时间](./COMPUTER/时间.md)
 
 * [C](./C/README.md)
   * [基本规则](./C/基本规则.md)
@@ -6,6 +8,8 @@
   * [编译](./C/编译.md)
   * [变量](./C/变量.md)
   * [指针](./C/指针.md)
+
+* [正则](./REGEX/README.md)
 
 * [LINUX](./LINUX/README.md)
   * [directory](./LINUX/directory.md)

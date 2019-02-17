@@ -1,7 +1,7 @@
 ---
 title: cookie
 categories: 
-- ES5
+- BROWSER
 ---
 
 # cookie

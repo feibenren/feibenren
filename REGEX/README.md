@@ -148,7 +148,7 @@ categories:
 ### String.search(regex):
 Finds the first substring match in a regular expression search
 
-### String.replace(regex)
+### String.replace(regex,replaceValue)
 ### String.split(regex)
 
 
