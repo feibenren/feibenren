@@ -314,7 +314,7 @@ css 提供了`z-index`来指定层级顺序
 
 又按照box type分为
 
-- `box format content(BFC)`
+- `block format content(BFC)`
 - `linke format content(IFC)`
 
 
@@ -363,7 +363,7 @@ css 提供了`z-index`来指定层级顺序
 
 不得已需要引入`FC`的概念，进行弥补，导致问题更加复杂
 
-css3提供了更多专门针对`定位`的解决方案，比如`flex`,`template`等，使用非常方便
+css3提供了更多专门针对`定位`的解决方案，比如`flex`,`grid`等，使用非常方便
 
 # 总结
 

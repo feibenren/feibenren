@@ -1,5 +1,9 @@
 AJAX
 
+XSS
+
+CSRF
+
 重定向
 
 
@@ -17,9 +21,6 @@ CSS有哪些继承属性
 
 
 
-什么是FOUC?如何避免
-
-
 如何创建块级格式化上下文(block formatting context),BFC有什么用
 
 
@@ -29,12 +30,7 @@ display,float,position的关系
 外边距折叠(collapsing margins)
 
 
-
 如何确定一个元素的包含块(containing block)
-
-
-
-stacking context,布局规则
 
 
 
@@ -45,24 +41,8 @@ stacking context,布局规则
 如何竖直居中一个元素
 
 
-DOM元素e的e.getAttribute(propName)和e.propName有什么区别和联系
-
-
-
-XMLHttpRequest通用属性和方法
-
-
-mouseover/mouseout与mouseenter/mouseleave的区别与联系
-
-
-
 
 javascript跨域通信
-
-
-
-多窗口通信
-
 
 
 
@@ -70,44 +50,19 @@ javascript跨域通信
 什么闭包,闭包有什么用
 
 
-应用程序存储和离线web应用
-
-
 
 cookie及其操作
 
 
-===运算符判断相等的流程是怎样的
-
-==运算符判断相等的流程是怎样的
-
-
-
-对象到字符串的转换步骤
-
-
-对象到数字的转换步骤
 
 
 函数内部arguments变量有哪些特性,有哪些属性,如何将它转换为数组
-
-
-请用原生js实现一个函数,给页面制定的任意一个元素添加一个透明遮罩(透明度可变,默认0.2),
- 使这个区域点击无效,要求兼容IE8+及各主流浏览器
-
-
-
-  var rect = elem.getBoundingClientRect();
-    var style = getComputedStyle(elem, null);
 
 
 
 立即调用表达式
 
 IIFE
-
-
-编写javascript深度克隆函数deepClone
 
 
 
@@ -150,7 +105,7 @@ IIFE
 
 
 
- .你如何理解HTML结构的语义化？　　
+你如何理解HTML结构的语义化？
 
 去掉或样式丢失的时候能让页面呈现清晰的结构：
 
@@ -159,4 +114,4 @@ IIFE
 讲解原生Js实现ajax的原理
 
 
-.请用Css写一个简单的幻灯片效果页面
+请用Css写一个简单的幻灯片效果页面

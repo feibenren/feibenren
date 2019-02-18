@@ -1,10 +1,7 @@
 ---
 title: reduce
 categories: 
-
 - ES5
-
-
 ---
 
 ## reduce
