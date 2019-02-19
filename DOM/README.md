@@ -27,6 +27,12 @@ DOM(document object model)文档对象模型，是一种操作HTML、XML的接�
 
 - 提供了查询接口
 
+DOM1可以分为两个两个:Dom Core模块,DOM HTML模块
+
+Dom Core模块定义了文档结构，映射关系，基本操作等
+
+DOM HTML模块则在 DOM Core的基础上进行了补充，更加方便html操作
+
 
 ## DOM2 
 
