@@ -69,5 +69,5 @@ css中的重点是css中的属性名和属性值，主要分类为:
 
 # 链接
 
-- [http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/](http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/)
+- [伪类与伪元素](http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/)
 - [http://www.css88.com/book/css/rules](http://www.css88.com/book/css/rules)
