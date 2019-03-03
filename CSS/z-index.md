@@ -285,6 +285,20 @@ z-index只对指定了 positioned属性的元素有效
 
 
 
+
+
+# 页面层级
+
+微信中，页面的层次一共四层
+
+- popout
+- mask
+- navigation
+- content
+
+
+
+
   
 # links
 - [https://webdesign.tutsplus.com/zh-hans/articles/what-you-may-not-know-about-the-z-index-property--webdesign-16892](https://webdesign.tutsplus.com/zh-hans/articles/what-you-may-not-know-about-the-z-index-property--webdesign-16892)
