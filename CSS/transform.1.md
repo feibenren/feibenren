@@ -1,5 +1,5 @@
 ---
-title: 变型(transform)
+title: transform
 categories: 
 - CSS
 ---
@@ -51,6 +51,7 @@ transform-style属性用来设置变形风格,`flat`:平面,`preserve-3d`:3d
 
 
 ## 3d
+
 3d变换就涉及到更多内容,,其中之一就是 **景深**
 
 ### 景深
@@ -59,6 +60,7 @@ transform-style属性用来设置变形风格,`flat`:平面,`preserve-3d`:3d
 
 
 # 变形元素
+
 进行transform3D变形的元素
 
 主要进行transform、transform-origin、backface-visibility

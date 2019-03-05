@@ -6,10 +6,9 @@ categories:
 
 # font
 
-是多个命令的简写形式
+是5个命令的简写形式
 
 - font-style
-- font-variant
 - font-weight
 - font-size
 - line-height
@@ -27,11 +26,11 @@ categories:
 
 不是所有的字体都有确切的 oblique 和 italic 字形，即便如此，浏览器也会通过使用现有的字形来模拟所缺少的字形
 
+italic和oblique显示效果差别不大，常用`italic`
 
 
-### font-variant
 ### font-weight
-字体粗细程度
+字体粗细程度,使用100-900表示
 
 - 100
 - 200
@@ -124,7 +123,7 @@ hello 你好
 font在书写的时候，顺序是随意的，但是有着几条规定
 
 - 必须同时设置 font-size 和 font-family 属性值
-- font-family 是必不可少的，需要放到最后
+- font-family 需要放到最后
 -  line-height 值必须紧跟在 font-size 之后，并且要在属性值前面加上 / 
 
 

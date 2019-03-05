@@ -42,3 +42,21 @@ textarea,html(不是body)自带overflow属性
 
 - resize(overflow不能是visiable)
 - ecllpsis(overflow必须是hidden)
+
+
+
+# overflow-x,overflow-y
+
+overflow属性是overflow-x，overflow-y这两个属性的简写
+
+overflow-x表示的是内容在水平方向超出后的处理方式
+
+overflow-y类似
+
+
+- visiable:default，超出后默认不处理
+- scroll:无论是否超出，都显示滚动条
+- auto:超出显示滚动条，不超出就不显示
+
+
+示例代码 [https://jsbin.com/lutewut/edit?html,css](https://jsbin.com/lutewut/edit?html,css)

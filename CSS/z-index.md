@@ -225,10 +225,10 @@ backgroud/border在最底下，如果在上面，那么可能会覆盖内容了
 
 
 
-# css初始概念---层叠上下文(stacking context)
+# 层叠上下文(stacking context)
 从数据结构来看，层叠上下文就是一个参照对象，对计算层级很有用处
 
-# css初始概念---层叠等级,层叠水平(stacking level)
+# 层叠等级,层叠水平(stacking level)
 
 - 后来居上(DOM后面覆盖前面的)
 - 谁大谁上(z-index大的在上面)
@@ -236,7 +236,7 @@ backgroud/border在最底下，如果在上面，那么可能会覆盖内容了
 这个从数据结构看，更本不需要解释
 
 
-# css初始概念---层叠顺序(stacking order)
+# 层叠顺序(stacking order)
 
 - 1、层叠上下文 background/border
 - 2、负z-index

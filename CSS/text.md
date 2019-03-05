@@ -58,7 +58,7 @@ block->line->text->word->letter
 
 # text-indent
 
-首行空格
+首行缩进
 
 规定行首应该有多少`水平空格`
 
@@ -102,7 +102,7 @@ The text-emphasis CSS property applies emphasis(强调) marks to text
 
 ### text-overflow
 
-
+[text-overflow](./css/text-overflow.md)
 
 
 
