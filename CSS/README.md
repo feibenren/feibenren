@@ -28,11 +28,18 @@ categories:
 - [background](./CSS/background.md)
 - [font](./CSS/font.md)
 - [text](./CSS/text.md)
+- [text-overflow](./CSS/text-overflow.md)
 - [transition](./CSS/transition.md)
 - [animation](./CSS/animation.md)
 - [transform](./CSS/transform.md)
 - [3D](./CSS/3D.md)
 - [空白](./CSS/空白.md)
+- [at-rule](./CSS/at-rule.md)
+- [媒体查询](./CSS/媒体查询.md)
+- [resize](./CSS/resize.md)
+- [flex](./CSS/flex.md)
+- [grid](./CSS/grid.md)
+- [will-change](./CSS/will-change.md)
 
 
 
