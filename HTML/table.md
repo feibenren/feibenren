@@ -9,6 +9,7 @@ categories:
 涉及到的标签
 
 - table
+- caption
 - tr:table row
 - td:table data
 - th:table header
@@ -48,6 +49,19 @@ table元素，是有默认的展示规则的
 - 每个td有padding
 
 table的属性，几乎都是围绕这三个特点展开的
+
+### table:align属性
+
+设置table元素的对齐方式
+
+- left
+- center 
+- right
+
+实现table元素的左对齐，右对齐，居中
+
+类似`margin-left/right:auto`实现的效果
+
 
 ### table:border属性
 
@@ -119,6 +133,8 @@ css有3个命令是针对table的
 fixed的布局的意思就是先满足`width设置`，默认每列都会被均分，内容如果超出的话，就使用css命令overflow来控制
 
 
+fixed：如果内容是中文的话td的宽度固定，高度根据内容的多少而变化，没有限制。如果是英文的话，宽高不变，内容宽度如果超出就会溢出。
+
 
 
 ### border-collapse
@@ -152,25 +168,104 @@ border-collapse属性就是设置`边框折叠、边框合并`的
 这个时候想要设置td的border margin就没有意义了，会导致无效
 
 
+
 # 示例代码
 
 [https://jsbin.com/hexutip/11/edit?html,output](https://jsbin.com/hexutip/11/edit?html,output)
 
 
 
+# caption
+表格标题，注意，这个标题展示在table元素之上的不是内部
+
+caption元素是table的第一个子元素
+
+```
+<table>
+    <caption></caption>
+</table>
+```
+
+# thead,tbody,tfoot
+
+- thead和tfoot在一张表中都只能有一个，而tbody可以有多个。
+- tfoot必须出现在tbody前面，这样浏览器在接收主体数据之前，就能渲染表尾，有利于加快表格的显示速度。这一点对大型表格尤其重要。
+- thead、tbody和tfoot里面都必须使用tr标签。
+
+
+示例
+
+```
+<table>
+    <caption></caption>
+    <thead></thead>
+    <tfoot></tfoot>
+    <tbody></tbody>
+    <tbody></tbody>
+    <tbody></tbody>
+</table>
+```
+
+[https://jsbin.com/wikayaj/2/edit?html,output](https://jsbin.com/wikayaj/2/edit?html,output)
+
+
+# colgroup,col
+
+
+tbody可以用来对"行"进行分组，而colgroup则用来对"列"进行分组
+
+colgroup属性:
+
+- span:影响的列数,默认是1
+- width:影响的列数的宽度
+
+col属性:
+- span:影响的列数，默认是1
+- width:影响的列数的宽度
+
+
+colgroup和col两个元素，不是影响元素自身，而是影响对应的列
+
+注意，这两个元素在table中的顺序,是放在caption之后，thead/tbody/tfoot之前的
+
+```
+<table>
+    <caption></caption>
+    <colgroup></colgroup>
+    <thead></thead>
+    <tfoot></tfoot>
+    <tbody></tbody>
+    <tbody></tbody>
+    <tbody></tbody>
+</table>
+```
 
 
 
+示例代码 [https://jsbin.com/yuyilaz/7/edit?html,output](https://jsbin.com/yuyilaz/7/edit?html,output)
 
+# th,td
+这两个元素差别不大，主要是样式上的不同，属性完全相同
 
+- colspan:列影响，默认1
+- rowspan:行影响，默认1
 
-tbody可以用来对"行"进行分组，而colgroup则用来对"列"进行分组。
+# tr
 
+tr元素需要注意的是一般样式`不要设置在tr上`，是无效的
 
+比如margin,padding,border等常见属性
+
+[https://jsbin.com/xokunaf/14/edit?html,output](https://jsbin.com/xokunaf/14/edit?html,output)
+
+# demos
+- [细边框表格](https://jsbin.com/fokebor/5/edit?html,output)
+- [隔行变色表格](https://jsbin.com/yabomic/3/edit?html,output)
+- [设置第一列颜色](https://jsbin.com/hisirar/3/edit?html,output)
+- [每行有底线](https://jsbin.com/xokunaf/14/edit?html,output)
 
 
 # links
 - [http://www.ruanyifeng.com/blog/2009/05/html_table_mastering.html](http://www.ruanyifeng.com/blog/2009/05/html_table_mastering.html)
-- 
-
+- [https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table)
 
