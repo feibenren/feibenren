@@ -22,7 +22,7 @@ Canvas 的默认大小为300像素×150像素（宽×高，像素的单位是px�
 
 # 矩形
 
-- context.fillStyle
+
 - context.fillRect()
 - context.strokeRect()
 - context.clearRect()
@@ -154,6 +154,24 @@ Canvas 的默认大小为300像素×150像素（宽×高，像素的单位是px�
 
 由默认的黑色到白色，然后又是黑色。
 
+
+
+
+生成路径的第一步叫做beginPath()。本质上，路径是由很多子路径构成，这些子路径都是在一个列表中，所有的子路径（线、弧形、等等）构成图形。而每次这个方法调用之后，列表清空重置，然后我们就可以重新绘制新的图形。
+
+
+# demos
+
+- [日本国旗](https://jsbin.com/xozahat/3/edit?html,js,output)
+- [三角形](https://jsbin.com/xawequ/1/edit?html,js,output)
+- [圆角矩形](https://jsbin.com/ritiwes/1/edit?html,js,output)
+- [显示器色彩辨认]()
+- []()
+- []()
+- []()
+- []()
+
 # links
 - [https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas)
 - [https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial)
+- [http://bucephalus.org/text/CanvasHandbook/CanvasHandbook.html](http://bucephalus.org/text/CanvasHandbook/CanvasHandbook.html)
