@@ -36,3 +36,9 @@ categories:
 
 
 Path2D
+
+
+
+
+[lineCap](https://jsbin.com/sehuquh/5/edit?html,js,output)
+[lineJoin](https://jsbin.com/hezuqam/1/edit?html,js,output)
