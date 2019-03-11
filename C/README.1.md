@@ -4,25 +4,9 @@ categories:
 - C
 ---
 
-# 在线c环境
-[https://studio.dev.tencent.com](https://studio.dev.tencent.com)
-
-# 起源
-C在basic语言的基础上衍生而来，最初主要的用途是用来写unix操作系统的，所以C和操作系统结合紧密
 
 # hello world
 
-```
-#include <stdio.h>
-int main() {
-	printf("hello world");
-	return 0;
-}
-```
-- `#include <stdio.h>`引入头文件
-- `int main()`主函数,整个项目中只有一个主函数
-- `printf("hello world");`打印字符串,printf函数在`<stdio.h>`,不引入头文件，无法使用该函数
-- `return 0;`函数返回值，对应主函数返回值类型
 
 
 

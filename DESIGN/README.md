@@ -59,7 +59,7 @@ categories:
 
 ### Keep It Simple, Stupid (KISS)
 
-简单点，傻逼
+保持简单和笨拙
 
 ### You Ain’t Gonna Need It (YAGNI)
 
