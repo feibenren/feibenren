@@ -1,7 +1,7 @@
 ---
 title: history
 categories: 
-- ES5
+- JAVASCRIPT
 ---
 
 # history

@@ -2,7 +2,7 @@
 title: mouseover && mouseenter
 categories: 
 
-- ES5
+- JAVASCRIPT
 
 
 ---

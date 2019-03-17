@@ -2,7 +2,7 @@
 title: ajax
 categories: 
 
-- ES5
+- JAVASCRIPT
 
 
 ---

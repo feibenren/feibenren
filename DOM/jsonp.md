@@ -2,7 +2,7 @@
 title: jsonp
 categories: 
 
-- ES5
+- JAVASCRIPT
 
 
 ---

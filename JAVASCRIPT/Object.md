@@ -1,145 +1,187 @@
 ---
-title: Object
+title: OBJECT
 categories:
 - JAVASCRIPT
 ---
-
 # 对象
 
-在js中，对象是一种数据类型，表示的是一个`无序键值对的集合`
+对象是一种数据结构，由`无序的数据键值`对组成
 
-一个键值对由三部分组成`key`，`value`，`属性描述符`组成
+如果仅仅从一种数据结构来说，很简单
 
-# 属性描述符
+但是js还将对象赋予了更多的功能，比如
+- 继承
+- 键值对控制
+等
 
-属性描述符是用来设置这个键值对的某些特定功能
+- [BASE_OBJECT](./JAVASCRIPT/BASE_OBJECT.md)
+- [PROTO](./JAVASCRIPT/PROTO.md)
+- [属性描述符](./JAVASCRIPT/属性描述符.md)
 
-由6部分组成
-
-- value
-- writable
-- enumberable
-- configurable
-- set
-- get
-
-
-### value
-属性值
-### writable
-属性的可写性
-### enumberable
-属性的可遍历性
-### configurable
-对象描述符的可配置性
-### set/get
-设置属性的`accessor`
-
---------------------
-
-ecmascript提供的关于对象的，就是围绕着`这三部分`展开的
-
-
-针对这种数据结构的要求，语法中提供了`Object`这个内置的API来满足以上的需求
-
-注意，这里有两个概念
-
-对象:是一种数据结构
-
-Object:是js语法提供的针对这种数据结构，来进行管理的一个API而已
-
-# Object 方法
-
-Object提供了很多管理对象的方法
-
-- Object.assign()
+# Object方法
 - Object.create()
+- Object.assign()
 - Object.defineProperty()
 - Object.defineProperties()
+- Object.keys()
 - Object.entries()
-- Object.getOwnPropertyDescriptor()
-- Object.preventExtensions()
-- Object.isExtensiable()
+
+
+
+
+
+# Object.prototype方法
+
+
+
+
+# Object.create(proto, [propertiesObject])
+
+
+跟据原型创建对象
+
+注意这个proto参数是必填的
+
+[https://codepen.io/feibernren/pen/WmJaGV?editors=0012](https://codepen.io/feibernren/pen/WmJaGV?editors=0012)
+
+有一种非常常见的写法
+```
+var obj=Object.create(null);
+```
+创建了一个没有原型的对象，也就是`obj`没有Object.prototype上面挂在的方法，更纯净
+
+# Object.defineProperty(obj,property,protertyObj)
+
+可以使用`Object.defineProperty()`来定义对象的属性
+
+这里有一点需要注意，就是默认值
+
+```
+var obj={}
+Object.defineProperty(obj,'name',{
+    value:1
+});
+```
+如果这样设置的话，`configurable,writable,enumberable`这三个属性都是false
+
+并且可怕的是，`configurable`为false之后，那么这个属性描述符就无法修改了
+
+由于`writable`为false，会导致无法修改这个属性
+
+# Object.assign(target,source1,source2....)
+复制对象的属性到目标对象上
+
+但是需要注意:
+
+- [不会复制prototype上的属性](https://codepen.io/feibernren/pen/KERExZ?editors=0012)
+- [会调用源对象的get accessor](https://codepen.io/feibernren/pen/KERExZ?editors=0012)
+- [enumberable:true才复制](https://codepen.io/feibernren/pen/ywjrBx?editors=0012)
+- [仅仅是数值复制](https://codepen.io/feibernren/pen/wOjZvr?editors=0012)
+- [后者覆盖前者](https://codepen.io/feibernren/pen/pYVYRr?editors=0012)
+- 会修改target对象
+- 返回值也是新的target对象
+
+可以看到，`Object.assign()`进行属性的拷贝，不是完全的复制，所以想要实现更加精确的复制，需要使用`Object.getPropertyName()`和`Object.definePerperty()`来重新设置属性
+
+
+# Object.keys()
+这个方法很简单
+
+获得对象自身的属性名称
+
+[https://codepen.io/feibernren/pen/vPjMOX?editors=0012](https://codepen.io/feibernren/pen/vPjMOX?editors=0012)
+
+但是有两点需要注意
+
+- enumberable:true
+- prototype属性不获取
+
+# Object.values()
+和Object.keys()对应，获得的是对象的values
+
+# Object.entries()
+返回一个对象的`键值对数组`
+
+[https://codepen.io/feibernren/pen/gEzyPW?editors=0012](https://codepen.io/feibernren/pen/gEzyPW?editors=0012)
+
+这个是Object.keys(),Object.values()的组合版本，返回的是一个二维数组
+
+# Object.getPrototypeOf()
+获得一个对象的原型
+
+
+# Object.getOwnPropertyDescriptor()
+
+获得自身的对象描述符
+
+[https://codepen.io/feibernren/pen/gEzyPW?editors=0012](https://codepen.io/feibernren/pen/gEzyPW?editors=0012)
+
+# Object.getOwnPropertyNames()
+
+获得自己所有的属性名，包括`enumberable:false`的属性
+
+其他方法无法遍历`enumberable:false`的属性，只有这个方法可以
+
+[https://codepen.io/feibernren/pen/vPjMmx?editors=0012](https://codepen.io/feibernren/pen/vPjMmx?editors=0012)
+
+
+# Object.preventExtensions(),Object.isExtensible()
+
+阻止对象自身的扩展
+
+注意，仅仅是自身的扩展，原型上可以继续扩展
+
+而且阻止的仅仅是扩展，`修改,删除`原来的属性还是可以的
+
+```
+'use strict';
+var obj={
+    name:2,
+    age:3,
+};
+console.log(Object.isExtensible(obj));//true
+Object.preventExtensions(obj);
+console.log(Object.isExtensible(obj));//false
+obj.name=555;//还是可以修改原来的属性
+// obj.title=4;//会报错
+console.log(obj);
+obj.__proto__.sex=55;
+console.log(obj);
+```
+
+# Object.seal(),Object.isSeal()
+
+seal(),表示`密封`
+
+比Object.preventExtension()更严格
+
+seal的对象，不能添加属性，也不能删除属性
+
+
+
+# Object.freeze(),Object.isFrozen()
+
+freez表示冻结
+
+比seal更厉害，不能修改原来的属性
+
+
+# 冻结，密封，防扩展
+
+- Object.preventExtension()
 - Object.seal()
-- Object.isSeal()
 - Object.freeze()
-- Object.isFrozen()
 
-# Object.prototype
+这三个方法都可以`控制对象的扩展`
 
-Object有一个特殊的属性，就是prototype属性，这个属性表示的是Object对象的原型
+---------------------------
+preventExtension()，仅仅是控制对象这个`盒子自身`
+不让进入新的键值对，其他的就没有任何限制
+------------------------
+seal()的限制，是在preventExtension()的基础上的更加严厉的控制,它将每个属性的`configurable`设置为false，所以，删除会报错
 
-这里的原因，可以理解为`父母`，`上一代`
+-----------------
+freeze()属性的，则是在seal的基础上，又修改了`writable`属性为false，这样修改原有的属性的属性值也会报错
 
-原型拥有的东西自己是可以`继承`的
-
-- Object.prototype.valueOf()
-- Object.prototype.toString()
-- Object.prototype.hasOwnProperty()
-- Object.prototype.isPrototypeof()
-- Object.prototype.propertyIsEnumberable()
-
-
-# 对象的操作
-
-对象仅仅是包裹键值对的盒子，对象的操作，主要是针对键值对的操作
-
-- 创建
-- 拷贝
-- 修改
-- 删除
-- 查找/遍历
-
-# 创建对象
-
-- `new Object([value])`:
-- {nameValuePair1,nameValuePair1}:
--  `Object.create(proto, [propertiesObject])`
-
-`new Object()`这种方式和字面量的写法是一样的，形式不同而已
-
-`new Object()`这种用法多用在将一个不确定的数值类型转换成一个对象
-
-`Object.create(proto)`这个方法的参数proto是不能省略的，所以也多用在了继承
-
----------------
-
-而关于对象描述符来说
-
-只有`Object.create()`这个方法才完整，所以推荐使用这个方法创建对象
-
-字面量只支持`accessor`的使用，其他对象操作符的属性无法操作
-
-> 这三种方法，如果不设置对象描述符的话，默认是`undefined`
-
----------------
-
-而关于继承链来说
-
-`new Object()`和键值对这两种方法创建的对象都有proto
-
-在js中，想要创建没有proto的方法只有一种`Object.create(null)`;
-
-
-# 删除对象
-
-对象本身无法删除，只能靠垃圾回收机制
-
-对象属性可以通过`delete`关键字来删除
-
-# 修改对象
-
-修改本身也没什么意义
-
-这里说修改对象的键值对
-
-
-
-
-
-# 查找/遍历
-
-
-# 对象描述符
 
 

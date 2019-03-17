@@ -1,13 +1,8 @@
 ---
-title: comet
+title: reduce
 categories: 
-
 - JAVASCRIPT
-
-
 ---
 
-
-# comet
-
-
+## reduce
+归约
