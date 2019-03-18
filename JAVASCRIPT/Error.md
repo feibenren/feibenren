@@ -1,5 +1,5 @@
 ---
-title: Error对象
+title: ERROR
 categories: 
 
 - JAVASCRIPT
@@ -8,6 +8,7 @@ categories:
 ---
 
 # Error对象
+
 ## Error对象的实例有三个最基本的属性：
 - name：错误名称
 - message：错误提示信息

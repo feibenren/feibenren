@@ -140,3 +140,11 @@ function(){ /* code */ }();
 https://www.ecma-international.org/ecma-262/5.1
 
 
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures#
+
+
+
+在计算机科学中, 对象是指内存中的可以被 标识符引用的一块区域.
+
+
+箭头函数总是匿名的

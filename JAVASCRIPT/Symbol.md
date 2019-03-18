@@ -1,11 +1,12 @@
 ---
-title: Symbol
+title: SYMBOL
 categories: 
 - JAVASCRIPT
 ---
 # Symbol
 
 js中的第七种数据类型，可以产生独一无二的数值
+
 ```
 let s1=Symbol();
 ```

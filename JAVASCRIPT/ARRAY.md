@@ -1,107 +1,125 @@
 ---
 title: ARRAY
 categories: 
-
 - JAVASCRIPT
-
-
 ---
 
-## 数组常用方法
-- valueOf:数组本身
-- toString:变成数组，中间间隔的只能是逗号,=== arr.join()
-- push:尾部添加，返回添加后的新数组的长度
-- pop:删除最后一个，返回删除的元素
-- shift:删除头一个,返回删除的元素
-- unshift:头部添加一个，返回添加后新数组的长度
-- join:使用指定字符串拼接数组为一个字符串
-- contact:拼接数组
-- reverse:反转数组
-- splice:切割数组，返回切割出来的数组
-- slice:Returns a section of an array(返回新数组，将类数组转换为数组常用)
-- sort:数组排序
+# ARRAY
+
+
+数组是一种`类列表对象`，它的原型中提供了遍历和修改元素的相关操作。
 
 
 
+数组对象的属性和数组元素列表是分开存储的
 
-ECMAScript 5 新加入的数组方法
-- forEach:为数组中的每一个元素执行指定的方法
-- map:为数组中的每一个元素执行指定的方法，并且返回的结果会组成一个新的数组
-- filter:和map有什么区别
-- some,every: 确定是否数组中所有的元素都满足回调的的返回结果
-- reduce ,reduceRight:让数组中每个元素调用回调函数，回调函数的返回结果是累积的，并且这个累积的结果会当作参数传给下一个回调函数
-- indexOf,lastIndexOf
+# length属性
 
+JavaScript 数组的 length 属性和其数字下标之间有着紧密的联系。数组内置的几个方法（例如 join、slice、indexOf 等）都会考虑 length 的值。另外还有一些方法（例如 push、splice 等）还会改变 length 的值
 
+该值是一个无符号 32-bit 整数
 
+# 方法
 
-## 能改变数组的方法
-- push,pop,shift,unshift
-- reverse
-- splice
-- sort
+## 修改器方法(Mutator methods,赋值函数)
 
-## 不能改变数组的方法(纯函数)
-- contact
-- join
-- toString
-- forEach
-- map
-- some,every
-- reduce,reduceRight
-- indexOf,lastIndexOf
+- Array.prototype.push():
+- Array.prototype.pop():
+- Array.prototype.shift():
+- Array.prototype.unshift():
+- Array.prototype.sort():
+- Array.prototype.splice():
 
+##### Array.prototype.push()
+在数组的末尾增加一个或多个元素，并返回数组的新长度
+##### Array.prototype.pop()
+删除数组的最后一个元素，并返回这个元素
+##### Array.prototype.shift()
+删除数组的第一个元素，并返回这个元素
+##### Array.prototype.unshift()
+在数组的开头增加一个或多个元素，并返回数组的新长度
+##### Array.prototype.sort()
+对数组元素进行排序，并返回当前数组。
+##### Array.prototype.splice()
+在任意的位置给数组添加或删除任意个元素。
 
+## 访问方法(Accessor methods)
 
+- Array.prototype.concat():
+- Array.prototype.join():
+- Array.prototype.slice():
+- Array.prototype.indexOf():
+- Array.prototype.lastIndexOf():
 
-## 数组增删方法例子
-比如，我想给自己列一个学习计划表，比如
-```
-let task=[]
-```
-初步想法是先学习'html','css','js'这三个
-那么用代码表示就是:
-```
-task.push('html','css','js');//3
-console.log(task);//'html','css','js'
-```
-好了，我要从头学起了，先学html
-```
-task.shift();//html
-console.log(task);//css,js
-```
-学完html，下面就是css了
+#### Array.prototype.concat():
+返回一个由当前数组和其它若干个数组或者若干个非数组值组合而成的新数组。
+#### Array.prototype.join():
+连接所有数组元素组成一个字符串。
+#### Array.prototype.slice():
+抽取当前数组中的一段元素组合成一个新数组。
+
+浅拷贝
 
 ```
-task.shift();//css
-console.log(task);//js
+var shallowCopy = fruits.slice(); // this is how to make a copy 
 ```
-最后就剩下js了，但是这个时候我突然想看node了，怎么做？
-```
-task.unshift('node');//2
-console.log(task);//node,js
-```
-但是我这个时候发现，先看node不行，得先学习js
-```
-task.pop();//js
-console.log(task);//node
-```
+#### Array.prototype.indexOf():
+
+返回数组中第一个与指定值相等的元素的索引，如果找不到这样的元素，则返回 -1。
+
+
+跟据value查找index
+
+#### Array.prototype.lastIndexOf():
+
+返回数组中最后一个（从右边数第一个）与指定值相等的元素的索引，如果找不到这样的元素，则返回 -1。
+
+## 迭代方法
+
+- Array.prototype.forEach():
+- Array.prototype.map():
+- Array.prototype.every():
+- Array.prototype.some():
+- Array.prototype.filter():
+- Array.prototype.reduce():
+- Array.prototype.reduceRight():
 
 
 
-# 方法分类，便于记忆
+#### Array.prototype.forEach():
+为数组中的每个元素执行一次回调函数。
 
-数组的堆栈操作
-push,pop,unshift,shfit
 
-循环遍历
-map,forEach,reduce,reducerRight
 
-查找/取出特定值
-filter,some,every,indexOf,lastIndexOf,slice,splice
+#### Array.prototype.map():
 
-排序
-sort 
+返回一个由回调函数的返回值组成的新数组
 
-变换
-toString,concat,join,
+#### Array.prototype.every() && #### Array.prototype.some():
+
+- every():如果数组中的每个元素`都`满足测试函数，则返回 true，否则返回 false。
+- some()如果数组中的每个元素`有一个`满足测试函数，则返回 true，否则返回 false。
+
+
+这两个方法是`断言方法`
+
+#### Array.prototype.filter():
+函数过滤
+
+#### Array.prototype.reduce():
+
+从左到右为每个数组元素执行一次回调函数，并把上次回调函数的返回值放在一个暂存器中传给下次回调函数，并返回最后一次回调函数的返回值。
+
+#### Array.prototype.reduceRight():
+
+
+
+
+
+
+
+
+
+
+
+
