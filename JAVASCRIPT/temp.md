@@ -148,3 +148,8 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures#
 
 
 箭头函数总是匿名的
+
+
+
+
+ES5标准可以让我们创建没原型的对象（使用Object.create(null)方法实现）对，从这个角度来说，这样的对象可以称之为哈希表：

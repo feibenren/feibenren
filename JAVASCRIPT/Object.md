@@ -27,12 +27,10 @@ categories:
 - Object.entries()
 
 
-
-
-
 # Object.prototype方法
 
-
+- Object.valueOf()
+- Object.toString()
 
 
 # Object.create(proto, [propertiesObject])

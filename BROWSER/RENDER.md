@@ -20,7 +20,7 @@ categories:
 render进程内部是多线程的，常见的有
 
 - GUI线程:解析，绘制，html和css
-- js引擎线程:负责处理js脚本,也成为js内核，比如chrome的V8
+- js引擎线程:负责处理js脚本,也称为js内核，比如chrome的V8
 - 事件触发线程
 - 定时器线程
 - 异步http请求线程
