@@ -5,128 +5,151 @@ categories:
 ---
 
 
+setTimeout()无法捕捉错误
+
+
+# 回调地狱
+
+promise主要的作用就是解决`回调地狱`
+
+Promise 对象用于`表示一个异步操作的最终状态`（完成或失败），以及该异步操作的结果值。
+
 Promise 本质上是一个绑定了回调的对象，而不是将回调传进函数内部。
 
 
+# 运行机制
+
+这个和`event loop`有关
+
+- 主线程执行代码，遇到promise的时候，会执行`exector function`
+- exector function中的异步操作交由对应的webapi线程来执行
+- webapi线程线程处理完异步代码后,根据执行的是resolve还是reject function，将then注册的对应的函数放入`micro task queue`
+- 主线程执行完同步代码后，读取task queue，开始执行回调
 
 
-# promise
-异步函数的编程麻烦，社区出现了很多解决方案，promise就是其中一个，后被写入标准
+# Promise
 
-promise是一种 **代码结构**，可以使得异步代码更简洁，可维护
+promise对象由两部分组成
 
-# 语法
+- 状态
+- promiseValue
 
-```
-//创建一个构造函数
-let p=new Promise((resolve,reject)=>{
-  if(true){
-    resolve();
-  }else{
-    reject();
-  }
-});
-```
-Promise构造函数的参数是一个函数，该函数的两个参数是系统提供的，这两个参数是两个函数，执行第一个参数函数，可以使该promise状态由pending->resolved,如果执行了第二个参数，那么promise的状态由pending->rejected
+-------------
 
+promise对象有三种状态
 
-# Promise.protype.then(resolve,reject?)
+- pending:初始状态
+- fullfilled:成功状态
+- rejected:失败状态
 
-promise中意义最大的就是可以改变 **回调地狱**,以前需要通过回调函数传 **‘下一步’**，而promise则可以通过 **then来传递‘下一步’**
+promise状态可以改变，但是只有两种情况
 
-promise中的执行不同的参数函数，只是改变了状态，但是状态的改变会有什么影响？
+- pending---->fullfilled
+- pending---->rejected
 
-影响出现在then函数中:
+-------------------
 
-then函数接收两个参数函数，如果promise的状态是resolved,那么then就会执行第一个函数，如果rejected，那么then就会执行第二个函数(绝大多数情况下，不传递第二个参数，有更好的解决方法:catch)
+promise中还有一个概念，就是`promiseValue`
 
+他会按照以下的规定进行`设置`
 
+- 默认值:`undefined`
 
-# Promise.protype.catch(err)
+- exector function resolve/reject的参数,会被设置为promiseValue
 
-promise中如果出现了错误，可以使用`p.then(null,reject)`来捕获错误，而catch就是其简写方法，这样意图更明确
+- then中回调函数的返回值,被设置为promiseValue
 
-但是这个地方需要注意的是，catch不仅仅捕获rejected错误，而且捕获常规错误,这可能会给排查错误带来麻烦
+---------------------
 
-```
-let p=new Promise((resolve,reject)=>{
-  wrong_code;
-})
-p.catch(err=>{
-  console.log(err)
-})
-```
-
-# Promise.protype.finally()
-无论如何都会执行的函数，其实就相当于 `then(fn,fn)`,es2018引入
+> promise中提供的所有方法和这两个概念相关
 
 
+相关方法
 
-# 链条
-
-
-
-
-注意，then,catch方法都返回原来的promise对象，因此可以链式使用
-
-
-# 组合 
-
-then,catch,finally这三个基本的方法就是promise的基本
-
-
-还有很多其他常见情况，promise也有对应的解决方案
-
-#### Promise.all([p1,p2,p3]),Promise.race([p1,p2,p3])
-
-这两个方法会返回一个新的promise，表示组合的promise
-
-两者的区别在于，
-- all:所有的状态都resolved，那么新的promise才是resolved，如果有一个rejected，那么这个新的promise，就是rejected,**也就是数组中所有的promise都执行完毕，才会确定新promise的状态**
-- race:和all的逻辑不同，新的promise的状态和数组中的第一个改变状态的promise相同,**也就是说，数组中的promise第一个状态改变，就可以确定新的promise的状态**
-
-# 直接获得状态确定的promise:
+- new Promise()
+- Promise.prototype.then()
+- Promise.prototype.catch()
+- Promise.prototype.finaly()
+- Promise.resolve()
+- Promise.reject()
+- Promise.all()
+- Promise.race()
 
 
 
-其实还有一种需求:如果一个函数默认返回promise，那么在错误的时候，也应该返回rejected的promise,这样方便初处理，示例：
+# new Promise()
+
+创建一个promise，需要通过构造函数来实现
 
 ```
-function loadImg(url){
-  if(!url){
-    return Promise.reject(e)
-  }
-  return new Promise()
-}
-```
-同样，有时候我们也需要返回直接resolved的promise
-
-```
-function loadImg(url_obj){
-  if(url_obj.is_loaded){
-    return Promise.resolve(url.src);
-  }
-  return new Promise();
-}
+new Promise( function(resolve, reject) {...} /* executor */  );
 ```
 
-使用Promise.resolve(),Promise.reject()这两个函数实现以上功能
+构造函数需要一个`参数函数`，这个`参数函数可以修改promise自身的状态`
+
+参数函数也需要两个参数函数：resovle，reject
+
+如果执行了`relove()`,会导致promise状态`pending-->fullfilled`
+
+执行`reject()`,会导致promise状态`pending--->fullfilled`
 
 
+并且promiseValue会被设置为这两个函数的参数
+
+# Promise.prototype.then(fulfillment,[rejection])
+
+promise中最重要的方法，`绑定回调函数`
+
+> 添加fulfillment回调和rejection回调到当前 promise, 并且返回一个`新的promise`
+
+then方法就是添加两种状态的回调，这个没什么好说的，有意思的是`then()`的返回值
+
+then的返回值是一个新的promise
+
+新的promise也需要从两个方面说，`状态`和`promiseValue`
 
 
-# 弊端
+-------------
 
-- 一旦在一个地方使用了promise，那么可能整段代码，整个项目都需要使用promise
+new promise的状态，分为以下几种情况:
 
-- catch捕获所有的错误，不分rejected和常规错误
+- 回调函数运行出错，new promise状态是`rejected`
 
-- promise不适合长组合的太长，这样逻辑会很混乱，如果处理的逻辑很复杂，最好就是分成小的部分
+- 回调函数运行不出错，并且返回一个promise，新promise的状态和返回的promise状态保持一致
+
+- 回调函数运行不出错，返回一个非promise，新的promise的状态是`fullfilled`
+
+---------------------
+new promise的value
+
+则是then中的回调函数的返回值设置的
 
 
+# Promise.prototype.catch()
+catch()是`Promise.prototype.then(null,fn)`的简写
+# Promise.prototype.finaly()
+finaly()是`Promise.prototype.then(fn,fn)`的简写
+# Promise.resolve()
+创建一个`fullfilled`状态的promise，promiseValue是其参数
+# Promise.reject()
+创建一个`rejected`状态的promise，promiseValue是其参数
+# Promise.all()
+创建一个promise
+
+Promise.all()的参数是一个部署了iterable的对象
+
+当所有的item的状态`都改变`为fullfilled的时候，新的promise的状态就是fullfilled，否则是rejected
+
+新的promise的value，由所有的fullfilled的item组成，是一个数组
+
+# Promise.race()
+race()和all()相反
+
+新对象由第一个状态改变的item决定
 
 
-
+# 链式调用
+promise提供的所有方法，都是创建一个新的promise，也就可以实现链式调用了
 
 
 # 链接

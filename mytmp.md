@@ -28,3 +28,7 @@ MutationObserver
 
 promise
 
+如何pollyfill promise
+
+
+insertAdjacentHTML

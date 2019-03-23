@@ -5,70 +5,51 @@ categories:
 ---
 
 # Function
-在js中function的功能远远不止函数那么简单，它所代表的内容很多，比如
-函数，方法，构造函数，块级作用域等等功能，很复杂
 
-# 变量提升
-在js中规定，函数中的变量在整个函数体内始终是可见的,也就是说，只要申明了一个变量，即使在之前也可以使用，这就叫做 **变量提升**
-同样，对于内容的函数，也是始终可见的
-所以
-```
-function test(){
-    test2();//正常执行
-    console.log(a);//undefined
-    var a=1;
-    function test2(){}
-}
-```
+函数本身的基本作用就是`可重复使用的代码片段`
 
-# 函数作用域
-在js中规定，声明的全局变量，都是全局对象的一个属性,如
-```
-var a=1;
-console.log(window.a);//1
-```
-那么对于一个函数呢,也存在这样一个和该函数相关的'全局变量'，这个变量就是调用对象/声明上下文,但是这个对象我们在js中是无法得到的，它是内部实现
-我们可以模拟这个对象
-```
-function test(arg1) {
-  var a = 1;
-}
-//类似这么个意思
-var obj = {
-  test: {
-    a: 1,
-    arg1: null,
-    global: {},
-  }
-};
-```
+如C语言中的函数，就提供了这个基本功能
 
-## 函数作用域链
-当函数套函数的时候，就会有这么个形式
+js还为函数添加了`构造函数`的功能，可以成为一个对象的生成器
+
+
+这里只说function当做一个全局对象来说
+
+# 绑定切换this
+
+function.prototype本身没有提供其他功能，主要的功能就是固定this
+
+函数中的this，是js在运行的时候，根据函数的`执行上下文`决定的
+
+function提供了三个方法，来固定function中的this
+
+- Function.prototype.call(thisArg,arg1,arg2...)
+- Function.prototype.apply(thisArg,[arg1,arg2...])
+- Function.prototype.bind(thisArg,arg1,arg2...)
+
+
+### Function.prototype.call(thisArg,arg1,arg2...)
+使用指定的this和参数来调用对应的函数
+### Function.prototype.apply(thisArg,[arg1,arg2...])
+和call一样，只是参数是一个数组
+### Function.prototype.bind(thisArg,arg1,arg2...)
+
+bind方法和上面的两个方法完全不一样，上面两个方法是调用函数
+
+bind的方法是创建并返回一个新函数，并绑定新函数的this值
+
+> args是当目标函数被调用时，预先添加到绑定函数的参数列表中的参数
+
 ```
-function test(arg1) {
-  var a = 1;
-  function test2(arg2) {
-    var b = 1;
+var obj1={
+  name:1,
+  say(arg1,arg2,arg3){
+    console.log(this);
+    console.log(arg1,arg2,arg3);
   }
 }
-var chain = {
-  test: {
-    a: 1,
-    arg1: null,
-    global: {},
-    test2: {
-      b: 1,
-      arg2: null,
-      global: {}
-    }
-  }
-};
-
+var new_fn=obj1.say.bind(obj2,1,2);
+new_fn(4);//1 2 4
 ```
-这样就形成了一个链条，一环套一环
-
-
-
 
 
