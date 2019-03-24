@@ -1,48 +1,72 @@
 ---
 title: Date
 categories: 
-
 - ECMASCRIPT
-
-
 ---
 
 # Date
-js中保存的是UTC的毫秒数(1970.1.1开始),而时间戳都是指秒数，需要注意
+
+Date 对象没有字面量格式，只能通过函数来创建
+
+Date 对象基于1970年1月1日（世界标准时间）起的毫秒数。
+
+Date对象提供的方法都是`围绕着处理时间`展开的
+
+
+可分为以下几类：
+
+- "set" 方法, 用于设置Date对象的日期和时间的值。
+- "get" 方法,用于获取Date对象的日期和时间的值。
+- "to" 方法,用于返回Date对象的字符串格式的值。
+- parse 和UTC 方法, 用于解析Date字符串。
+
+
+- new Date()
+- Date.now()
+- Date.parse()
+- Date.protype.get()
+- Date.protype.set()
+- Date.protype.to()
+
+# new Date()
+
+创建date对象并返回,创建的形式多种多样
 
 ```
-new Date()
+new Date();
+new Date(value);
+new Date(dateString);
+new Date(year, month[, day[, hour[, minutes[, seconds[, milliseconds]]]]]);
 ```
-可以创建基于当前时间的日期对象，一般情况下，我们看不到存储的直接的毫秒数，比如直接输出，会返回
-```
-Thu Aug 09 2018 14:29:48 GMT+0800 (中国标准时间)
-//chrome
-2018-08-09T06:35:51.443Z
-//node
-```
-可以看到，都是UTC时间，只是展现形式不一致，但是都是表示 **时间戳毫秒数**
 
-# Date.parse() && Date.UTC() && Date.now()
 
-这两个方法都会返回时间戳毫秒数
-## Date.parse(string)
-参数是一个字符串，字符串格式没确定要求，如果如果不能解析的话，会返回NaN
-## Date.UTC(Y,M,D,H,M,S,M)
-参数就是年月日时分秒
-## Date.now()
-直接返回当前的时分秒 
-## 总结
-实际上，new Date(value)，这样写法，后台会调用以上的函数，将参数转化为毫秒数，如果是字符串，就调用Date.parse(),如果是多个参数，那么就是Date.UTC()
-# Locale类方法
-这种方法返回的就是符合本地的字符串，但是这种方法只能返回特定的，整体的格式，灵活度很低，用处不大
-```
-(new Date()).toLocaleString()
-"2018/8/9 下午2:50:41"
-(new Date()).toLocaleDateString()
-"2018/8/9"
-(new Date()).toLocaleTimeString()
-"下午2:50:56"
-```
+# Date.now()
+
+返回当前时间的毫秒数
+
+# Date.parse()
+`解析时间字符串`并`返回毫秒数`
+
+# Date.protype.get()
+get系列是获取时间对象中的某个`时间属性`
+
+# Date.protype.set()
+设置时间对象中的某个`时间属性`
+# Date.protype.to()
+这个系列的函数就是将date对象转换为其他格式
+
+- Date.protype.toString():字符串形式
+- Date.protype.toLocaleString():当地形式的时间字符串
+
+# 其他
+
+一般情况下，我们看不到存储的直接的毫秒数,可以看到，都是UTC时间，只是展现形式不一致
+
+valueOf()，Date.prototype给改写了，直接调用了getTime()方法，直接返回了毫秒数
+
+如果两个日期对象相减，那么自动会将其转换成时间戳毫秒数,这非常方便两个日期的比较,相加的就变成了字符串连接了(没有意义)
+
+
 
 # 获取/设置date中的部分时间
 - getTime() 返回表示日期的毫秒数；与valueOf()方法返回的值相同
@@ -78,7 +102,3 @@ Thu Aug 09 2018 14:29:48 GMT+0800 (中国标准时间)
 - setMilliseconds(毫秒) 设置日期中的毫秒数
 
 
-# 注意
-- valueOf()，Date.prototype给改写了，直接调用了getTime()方法，直接返回了毫秒数
-
-- 如果两个日期对象相减，那么自动会将其转换成时间戳毫秒数,这非常方便两个日期的比较,相加的就变成了字符串连接了(没有意义)

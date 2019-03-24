@@ -11,7 +11,7 @@ categories:
 
 
 
-# js
+# 存储格式
 
 但是在js中，所有的数值都是用`小数的格式`来存储，即使是整数也使用小数的格式来存储
 
@@ -44,6 +44,13 @@ categories:
 - 十六进制(0x)
 - 二进制(0b)
 - 八进制(00)
+
+
+# Number对象
+
+- Number.MIN_VALUE
+- Number.MAX_VALUE
+- Number.prototype.toFixed()
 
 
 # links

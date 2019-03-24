@@ -6,15 +6,7 @@ categories:
 
 # web api
 
-ecmascript本身只制定了以下内容:
-
-- 语法（解析规则，关键字，流程控制，对象初始化等）
-- 错误处理机制（throw， try/catch 以及用户自定义错误类型的能力）
-- 类型（布尔值，数字，字符串，函数，对象等）
-- 全局对象。在浏览器环境中，这个全局对象就是 window 对象，但是 ECMAScript 只定义与浏览器无关的 APIs（例如，parseInt,parseFloat， decodeURI， encodeURI 等）
-- 基于原型的继承机制
-- 内置对象和函数（JSON，Math，Array.prototype 方法，Object introspection 方法等）
-- 严格模式
+ECMAScript 只定义与浏览器无关的 APIs（例如，parseInt,parseFloat， decodeURI， encodeURI 等）
 
 
 但是js中有还有大量的`外部api`，比如`Document`,`indexDB`等等
