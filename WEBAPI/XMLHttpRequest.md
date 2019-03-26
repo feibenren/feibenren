@@ -1,10 +1,7 @@
 ---
-title: ajax
+title: XMLHttpRequest
 categories: 
-
-- JAVASCRIPT
-
-
+- WEBAPI
 ---
 
 
