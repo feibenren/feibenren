@@ -1,44 +1,18 @@
 ---
 title: fetch
 categories: 
-- CANVAS
+- WEBAPI
 ---
-
-
-
 # fetch
 
- 新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。
+Fetch 的核心在于对 HTTP 接口的抽象，包括 Request，Response，Headers，Body，以及用于初始化异步请求的 global fetch。得益于 JavaScript 实现的这些抽象好的 HTTP 模块，其他接口能够很方便的使用这些功能。
 
 
-本质上，路径是由很多子路径构成，这些子路径都是在一个列表中，所有的子路径（线、弧形、等等）构成图形。而每次这个方法调用之后，列表清空重置，然后我们就可以重新绘制新的图形。
-
-# closePath()
-
-闭合路径之后图形绘制命令又重新指向到上下文中。
-
-
-这个方法会通过绘制一条从当前点到开始点的直线来闭合图形。如果图形是已经闭合了的，即当前点为开始点，该函数什么也不做。
-
-
-# 四步
-
-- beginPath()
-- 画图
-- closePath()
-- fill()/stroke()
+除此之外，Fetch 还利用到了请求的异步特性——它是基于 Promise 的。
 
 
 
 
-弧度=(Math.PI/180)*角度
 
-
-
-Path2D
-
-
-
-
-[lineCap](https://jsbin.com/sehuquh/5/edit?html,js,output)
-[lineJoin](https://jsbin.com/hezuqam/1/edit?html,js,output)
+当接收到一个代表错误的 HTTP 状态码时，从 fetch()返回的 Promise 不会被标记为 reject， 即使该 HTTP 响应的状态码是 404 或 500。相反，它会将 Promise 状态标记为 resolve （但是会将 resolve 的返回值的 ok 属性设置为 false ），仅当网络故障时或请求被阻止时，才会标记为 reject。
+默认情况下，fetch 不会从服务端发送或接收任何 cookies, 如果站点依赖于用户 session，则会导致未经认证的请求（要发送 cookies，必须设置 credentials 选项）

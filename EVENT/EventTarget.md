@@ -6,7 +6,21 @@ categories:
 
 # EventTarget
 
-EventTarget是一个由可以接收事件的对象实现的接口，并且可以为它们创建侦听器。
+
+EventTarget is a DOM interface implemented by objects that can receive events and may have listeners for them.
+
+eventTarget是一个DOM接口，这个接口可以接收事件，并且给这些事件设置listener(监听函数)
+
+Element, Document, and Window are the most common event targets, but other objects can be event targets too, for example XMLHttpRequest, AudioNode, AudioContext, and others.
+
+Element，document，window是最常见的 event target，但是 其他的对象也可以，比如 `XMLHttpRequest`
+
+Many event targets (including elements, documents, and windows) also support setting event handlers via onevent properties and attributes.
+
+很多 event targets 也支持 `onevent`属性的设置
+
+
+> evet target 字面翻译就是 `事件的目标`，其实我决定不翻译最好，就直接使用`event target`这个概念
 
 # 方法
 

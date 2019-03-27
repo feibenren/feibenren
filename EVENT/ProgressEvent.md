@@ -17,6 +17,17 @@ categories:
 - ProgressEvent.total 只读
 是unsigned long long类型，表示底层进程正在执行的工作总量。当使用HTTP下载资源时，这只表示内容本身，而不是头和其他开销。
 
+------------
+
+- ProgressEvent.lengthComputable:是否可以被测量
+- ProgressEvent.loaded:已经加载量
+- ProgressEvent.total:总数据量
+
+
+# 总结
+只要是能得到progressEvent对象，那么就可以计算出进度了`ProgressEvent.loaded/ProgressEvent.total`
+
+progressEvent对象就这个作用，没有其他功能
 # links
 
 - [https://developer.mozilla.org/zh-CN/docs/Web/API/ProgressEvent](https://developer.mozilla.org/zh-CN/docs/Web/API/ProgressEvent)
