@@ -3,6 +3,34 @@ title: webworker
 categories: 
 - HTML5
 ---
+
+# worker
+
+这个过程中数据并不是被共享而是被复制。
+
+
+
+一个专用worker仅仅能被生成它的脚本所使用
+
+
+而在worker线程中，workers 也可以调用自己的 close  方法进行关闭：
+
+close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 js是单线程的，这样做历史原因很多
 
 但是，这样做其实是有很多问题的，比如:
