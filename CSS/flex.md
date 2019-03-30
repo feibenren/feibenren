@@ -42,6 +42,8 @@ flex布局是css3中提出的一种布局方案
 flexbox 是一种一维的布局，是因为一个 flexbox 一次只能处理一个维度上的元素布局，一行或者一列。作为对比的是另外一个二维布局 CSS Grid Layout，可以同时处理行和列上的布局。
 
 
+[https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout)
+
 #### 2.1-main axis & cross axis
 
 主轴和交叉轴。
@@ -77,6 +79,10 @@ flex 元素内容排列，会形成一个方向，无论是水平还是垂直，
 - nowrap
 - wrap
 - wrap-reverse(和 wrap 的行为一样，但是 cross-start 和 cross-end 互换)
+
+
+
+> 每个新行都变成了一个新的弹性容器
 
 # flex-flow
 
@@ -177,7 +183,7 @@ flex-basis:length，如果设置一个固定数值，这没什么好说的
 - 子元素没有设置width，则flex-basis的取值是`width:max-content`
 
 
-默认值:`flex-basis:auto`;
+> 默认值:`flex-basis:auto`;
 
 > max-content:简单说就是最大的内容宽度，也就是所有内容不换行的宽度
 
@@ -187,7 +193,7 @@ flex-basis:length，如果设置一个固定数值，这没什么好说的
 
  flex-grow 属性指定了`flex增长值`, 这决定了当`positive free space`分配时，flex子元素相对于flex容器中的其余flex子元素的增长程度.
 
- 默认值`flex-grow:0`
+ > 默认值`flex-grow:0`
 
  > 只有positive free space存在的时候，这个属性才有意义，默认是不分配剩余空间的
 
@@ -195,7 +201,7 @@ flex-basis:length，如果设置一个固定数值，这没什么好说的
 
 这个属性和flex-grow正好相反，只有存在`negative free space`的时候，这个属性才有意义
 
-默认值`flex-grow:1`
+> 默认值`flex-grow:1`
 
 也就是说，默认会等比例缩小
 
@@ -228,6 +234,13 @@ none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
     - `flex-grow`+有单位(flex-basis)/无单位(flex-shrink)
 - 三值
     - flex-grow flex-shrink flex-basis
+
+
+### flex关键词
+- flex:auto === flex:1 1 auto
+- flex:none === flex:0 0 auto
+- flex:initial === flex:0 1 auto
+- flex:3 === flex:3 1 0
 
 # align-self
 
