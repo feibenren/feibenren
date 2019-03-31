@@ -143,7 +143,11 @@ fr单位代表`grid container`中`可用空间的一等份`
 
 
 
-# css 命令
+# css 命令(grid container)
+
+关于grid container 的css命令，主要是设置grid的track和line的
+
+设置track和line主要是用来给grid item定位和对齐使用的
 
 
 ## display:grid
@@ -152,11 +156,18 @@ fr单位代表`grid container`中`可用空间的一等份`
 
 ## grid-templates-rows/grid-templates-columns
 
-定义`track list`
+`defines the line names and track sizing functions `
+定义`grid line names`和track list
+
+总的来说，grid-templates，表示的是设置grid网格的`模板`
+
+>定义的模板，grid items用来定位使用
+
+### track list
 
 track list由多个 track组成
 
-### grid track的大小
+### grid track
 
 定义track size的方式有很多，还有特定的函数可以使用
 - `100px`
@@ -164,130 +175,117 @@ track list由多个 track组成
 - `1r`
 - `minmax(auto,1r)`
 
-### 定义 grid line 的名字
 
-- `[header-start]`
-- `[header-start main-start]`
+### track list
 
-
-### 定义track list
-
-多个track中间用空格隔开
+多个track设置中间用空格隔开
 
 - `100px 100px`
 - `100px repeat(3,100px)`
 - `100px repeat(auto-fill,100px)`
 
 
+### 定义 grid line 的名字
 
+- `[header-start]`
+- `[header-start main-start]`
 
+track和line可以一起定义
 
+- `[header-start] 100px [header-end]`
 
+## grid-auto-rows/grid-auto-columns
 
+设置隐式grid的模板
 
+## grid-row-gap/grid-column-gap/grid-gap
 
+设置间隙
 
+## grid-tempalte-areas
 
+设置 `grid-area`的names的模板
 
-
-
-
-
-
-
-## grid-row-gap
-设置row的间隙
-## grid-column-gap
-设置column的间隙
-
-## grid-gap
-
-是`grow-row-gap,grow-column-gan`的shorthand
-```
-grid-gap:<'row-gap'> <'column-gap'>?
-```
-## grid-row-start
-
-设置 grid item的在row的起始位置
-
-注意有一个`span`的关键字，表示的是跨越的`grid cell`的个数
-
-## grid-row-end
-
-设置 grid item的在row的结束位置
-
-## grid-row
-
-`grid-row-start和grid-row-end`的shorthand
-
-```
-<grid-line> [ / <grid-line> ]?
-```
-
-
-## grid-column-start
-## grid-column-end
-## grid-column
-
-以上三个属性和row的一样
-
-## grid-area
-
-这个属性是`grid-row-start/grid-column-start/grid-row-end/grid-column-end`的缩写，示例`grid-area:1/1/2/2`
-
-
-
------------------
-
-这个属性还有另外一种布局方式，和上面基于`grid line`的方式不一样，这种方式是基于`area name`的，通过配合`grid-template-areas`
-
-实现基于`area name`的grid布局
-
-## grid-template-areas
-
-
-grid-template-areas是一种基于`area name`的方式的布局方案，通过`grid-area`来定义`area name`，然后通过`grid-tempalte-areas`来设置整个grid box的布局方式
-
-[示例代码](https://codepen.io/feibernren/pen/yrBEvG)
 
 ## grid-template
 
+是`grid-tempalte-rows/gid-template-columns/grid-tempalte-areas`的缩写
+
+## grid
+设置的不仅仅是显式grid ，还有隐式grid
 
 
-# grid css函数
+## grid-auto-flow
 
-CSS网格布局擅长于将一个页面划分为几个主要区域，以及定义这些区域的大小、位置、层次等关系（前提是HTML生成了这些区域）。
+设置grid item的摆放顺序
 
+# css 命令(grid items)
 
-可用于布局页面主要的区域布局或小型组件
+grid items的css命令，主要是用来定位和对齐使用的
 
+### 定位方式
+通过定位方式，可以确定一个`grid item`的edge，也就是确定一个item的大小
 
-网格是一组相交的水平线和垂直线，它定义了网格的列和行。我们可以将网格元素放置在与这些行和列相关的位置上
+### 定位方式1：通过grid line定位
+- grid-row-start
+- grid-row-end
+- grid-row
+- grid-column-start
+- grid-column-end
+- grid-column
 
+示例
+- `100px`
+- `1fr`
+- `span 2`
+- `1/3`
+- `2`===`2/3(2+1)`
 
-# grid 特点
-
-- Fixed and flexible track sizes
-- Item placement
-- Creation of additional tracks to hold content
-- Alignment control
-- Control of overlapping content
-- 
-- 
-- 
-
-
-
-# The Grid container
-# Grid Tracks
-# The fr Unit
-
-
+`span`的关键字，表示的是跨越的`grid cell`的个数
 
 
+> 通过设置grid item的四周的edge，来定义一个grid cell的大小
+
+### 定位方式2：通过line name定位
+
+- grid-area
+
+示例
+
+- `header`
+
+## grid-area
+
+设置一个grid item的区域大小
+
+设置表示区域的方式有两种
+
+方式1:
+
+`grid-row-start/grid-column-start/grid-row-end/grid-column-end`的缩写，示例`grid-area:1/1/2/2`
+------------
+方式2
+- 通过name是来表示
+
+# 对齐
+
+grid item在grid布局中的对齐方式，通过
+
+- justify-items
+- justify-self
+- align-items
+- align-self
+来设置
+
+## justify-items/justify-self
+用来设置inline axis方向上的grid item的对齐方式
+
+## align-items/align-self
+用来设置block axis方向上的grid item的对齐方式
 
 
-# grid 和其他布局方式
+
+# 其他
 
 ## grid & table
 
@@ -303,81 +301,49 @@ grid 布局功能更强大
 
 ## grid & flex
 
-grid和flex布局更是类似
+grid和flex布局也类似，对齐的css和flex公用一套css命令
 
-举个例子
+使用grid or flex?
 
-[https://codepen.io/feibernren/pen/qwWojX?editors=1100](https://codepen.io/feibernren/pen/qwWojX?editors=1100)
-
-
-flex只要是可以断行，那么就可以理解为分为多个flex box，每个flex box都是按照设置的flex css属性来展示，想要实现每个flex中的column对齐，是无法做到的
-
-而grid则可以很容易做到
-
-# 使用grid or flex?
-
-## 标准1
+### 标准1
 - 只需要按行或者列控制布局？那就用弹性盒子
 - 需要同时按行和列控制布局？那就用网格
 
-## 标准2
+### 标准2
 - 弹性盒从内容出发
 - 网格则从布局入手
 
-
-
-
-
-
-
-
-
-
-
-
-
-grid会把 grid-gap 属性的值重置为 0，而且你还不能在简写中设置间距值。
-
-
-自动定位的默认规则
+## 自动定位
 
 所有子项目都会把自己摆放到网格中，每个单元格中放一个。默认的流向是按行排列项目，网格会首先尝试在第1行的每个单元格中摆放项目
 
-
-盒模型对齐 Level 3”的规范中，这个规范详细约定了在不同的布局方式下如何处理对齐问题
-
-
+## flex
 属性 justify-self 和 justify-items 在 flex 布局方式中未被实现，是因为 flex 布局本质上是一维的，在轴上会有多个项目，无法单独对齐其中某一个元素。
 
-inline axis & block axis
 
+---------------
 
 我们可以通过使用repeat方法，配合auto-fill和auto-fit属性，创建类似弹性盒的效果，同时保证内容严格按照行和列的固定规则排列。
 
 
-Default spans
-
-元素默认延伸一个轨道
-
-也就是如果我定义了`grid-row-start:2`,不定义`grid-row-end`,那么他的默认值就是start数值+1，也就是默认跨度是一个track
 
 
 
 
-https://caniuse.com/#search=grid
-ie10+基本都支持
 
-# 基本概念
 
-网格（grid）由一系列“单元格”（cell）组成。每个单元格由垂直的和水平的“格线”（grid line）划分出边界。一组垂直的网格，构成一“栏”（column）；一组水平的网格，构成一“排”（row）‘。
 
-单元格与单元格之间有垂直或水平的间距（gutter）
 
-Grid 布局的基本元素是行（row）和列（column）。行与行之间、列与列之间存在间距（gutter）。行与列的交叉部分，就是一个单元格（cell）。多个单元可以组成一个区域（area）。
 
-- container:包裹容器
-- items:单元格
-- fr:fraction，剩余空间进行分配
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
 
 # container
 
