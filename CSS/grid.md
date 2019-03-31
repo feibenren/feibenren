@@ -13,108 +13,16 @@ grid是css中新引入的一种二维的布局方式
 
 > firefox对flex和grid的调试都有专门的显示，chrome则没有，建议使用firefox调试
 
-
-# grid术语
-
-- grid container
-- grid Tracks
-- grid line
-- grid cell
-- grid area
-- grid gutter
-- fr unit
-- 隐式网格和显示网格
+- [命令]()
+- [概念]()
+- [定位]()
+- [对齐]()
+- [其他]()
 
 
-## grid container
+# 命令
 
-grid container和`flex container`意思类似
-
-表示grid 布局的容器
-
-`dispaly:grid`申明的元素就是`grid container`
-
-## grid Tracks(网格轨道)
-
-一个grid有若干个column ，row组成
-
-`grid-template-columns/grid-template-rows`可以定义网格中的row/column
-
-网格轨道简单说就是`grid columns 或 grid rows`,两条`相邻网格线之间的空间`
-
-
-## grid line(网格线)
-
-![grid line](./images/grid-line.jpg)
-
-grid line的主要作用是为了`定位网格元素`用的
-
-和grid container没有关系
-
-grid line则是row 和column 的编号，从1开始
-
-> 定义网格时，我们定义的是网格轨道，而不是网格线
-
-
-## css中grid line表示方法
-
-css中，因为grid line 是用来定位`grid item`的，所以表示grid line的方式很多
-
-### 1、直接使用数字
-这种表示最原始
----------------
-### 2、`span num`
-可以使用`跨越grid cell的个数来表示 grid line`
---------------
-### 3、负数
-
-如果column/row 的grid line的编号是`1--->n`
-
-那么`(1--->n) === (-n--->-1)`
-
-
-## grid cell
-
-grid cell的概念和`flex item`不一样,`flex 中没有这个概念`
-
-grid cell 则是row 和column形成的一个单元格，和`table cell`类似
-
-
-## grid area
-
-简单说就是一个或多个`table cell`，但是grid area仅仅只能是一个矩形
-
-## grid gutter
-grid cell之间的空隙
-
-## fr unit
-
-grid 布局引入的一个新单位
-
-fr单位代表`grid container`中`可用空间的一等份`
-
-> 在计算可用空间的时候，会排除 `grid gutter`
-
-## 隐式grid & 显示grid
-
-显示grid就是定义过的tracks
-
-但是可能由于内容的增多，可能会出现`没有定义的 tracks`，这些tracks就是`隐式 tracks`
-
-隐式track是默认的规则是`按照显示grid设置`
-
-也可以通过`grid-auto-rows,grid-auto-columns`来设置隐式grid
-
-> grid-auto-columns自己测试无效，不知道为什么grid-auto-rows却有效果
-
-
-## grid item
-
-grid item表示 grid网格布局中的子对象
-
-是`grid container`的直系子元素
-
-# grid css属性
+grid网格提供的功能非常强大，css命令也非常多
 
 - display:grid
 - grid-templates-rows
@@ -132,18 +40,160 @@ grid item表示 grid网格布局中的子对象
 - grid-area
 - grid-template-areas
 - grid
+- justify-items
+- justify-self
+- align-items
+- align-self
+
+
+
+
+# 概念
+
+- base
+- grid container
+- grid item
+- grid Tracks
+- grid line
+- grid cell
+- grid area
+- grid gutter
+- fr unit
+- 隐式网格和显示网格
+
+
+## base
+
+在grid布局中
+
+由一组相交的垂直和水平线(grid line)组成
+
+由此构成了行(row)和列(column)
+
+行和列相交，会形成一个一个单元(cell)
+
+子元素(grid item)会根据这些单元进行定位和对齐
+
+## grid container
+
+`grid container`和`flex container`意思类似
+
+表示grid 布局的容器
+
+## grid item
+
+`grid item`一般是 `grid container`的直接子元素
+
+grid item是grid 布局中的对象
+
+## grid line(网格线)
+
+grid 在布局的时候，会创建一组若干条水平和垂直的线
+
+这些线就是`grid line`
+
+grid line是有编号的，并且还可以给grid line起名字
+
+![grid line](./images/grid-line.png)
+
+## grid Tracks(网格轨道)
+
+相邻的两条垂直或水平的`grid line`中间的空白区域
+
+就是 `grid tracks`，
+
+grid tracks 可以设置宽度， 其宽度决定了 `grid cell`的大小
+
+
+
+## grid cell
+
+`grid cell`是垂直和水平的grid line相交产生的单元
+
+grid item默认是按照grid item进行定位的
+
+## grid area
+
+一个或多个`table cell`组成的矩形区域就是`grid area`
+
+grid item也可以按照 `grid area`进行定位
+
+
+## grid gutter
+grid cell之间的空隙
+
+
+
+## fr unit
+
+grid 布局引入的一个新单位
+
+fr单位代表`grid container`中`可用空间的一等份`
+
+> 在计算可用空间的时候，会排除 `grid gutter`
+
+
+
+## 隐式grid & 显示grid
+
+定义过tracks是的grid就是显示grid
+
+没有定义的tracks就是隐式grid
+
+
+
+
+# css 命令
 
 
 ## display:grid
 
 申明 `gird container`
 
-## grid-templates-rows
+## grid-templates-rows/grid-templates-columns
 
-defining the size of the row tracks
+定义`track list`
 
-## grid-templates-columns
-defining the size of the column tracks
+track list由多个 track组成
+
+### grid track的大小
+
+定义track size的方式有很多，还有特定的函数可以使用
+- `100px`
+- `30%`
+- `1r`
+- `minmax(auto,1r)`
+
+### 定义 grid line 的名字
+
+- `[header-start]`
+- `[header-start main-start]`
+
+
+### 定义track list
+
+多个track中间用空格隔开
+
+- `100px 100px`
+- `100px repeat(3,100px)`
+- `100px repeat(auto-fill,100px)`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## grid-row-gap
 设置row的间隙
@@ -289,7 +339,17 @@ flex只要是可以断行，那么就可以理解为分为多个flex box，每�
 grid会把 grid-gap 属性的值重置为 0，而且你还不能在简写中设置间距值。
 
 
+自动定位的默认规则
 
+所有子项目都会把自己摆放到网格中，每个单元格中放一个。默认的流向是按行排列项目，网格会首先尝试在第1行的每个单元格中摆放项目
+
+
+盒模型对齐 Level 3”的规范中，这个规范详细约定了在不同的布局方式下如何处理对齐问题
+
+
+属性 justify-self 和 justify-items 在 flex 布局方式中未被实现，是因为 flex 布局本质上是一维的，在轴上会有多个项目，无法单独对齐其中某一个元素。
+
+inline axis & block axis
 
 
 我们可以通过使用repeat方法，配合auto-fill和auto-fit属性，创建类似弹性盒的效果，同时保证内容严格按照行和列的固定规则排列。
@@ -349,5 +409,25 @@ grid-auto-columns,grid-auto-rows,这两个属性只能设置一个数值,因为�
 
 # 链接
 
+- [https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout)
 - [https://github.com/wangdoc/css-tutorial/blob/master/docs/layout/grid.md](https://github.com/wangdoc/css-tutorial/blob/master/docs/layout/grid.md)
 - [http://www.css88.com/archives/8510/comment-page-1](http://www.css88.com/archives/8510/comment-page-1)
+
+
+
+## css中grid line表示方法
+
+css中，因为grid line 是用来定位`grid item`的，所以表示grid line的方式很多
+
+### 1、直接使用数字
+这种表示最原始
+---------------
+### 2、`span num`
+可以使用`跨越grid cell的个数来表示 grid line`
+--------------
+### 3、负数
+
+如果column/row 的grid line的编号是`1--->n`
+
+那么`(1--->n) === (-n--->-1)`
+
