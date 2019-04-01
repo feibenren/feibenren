@@ -27,8 +27,31 @@ HTMLElement这个类型主要添加了一些属性
 - removeAttribute()
 - ELEMENT.CommonAttribute
 - ELEMENT.attributes
+
+
+# 方法
+- ELEMENT.scrollIntoView()
 - 
 
+
+# ELEMENT.scrollIntoView()
+
+这是一个非标准接口
+
+```
+element.scrollIntoView(); // 等同于element.scrollIntoView(true) 
+element.scrollIntoView(alignToTop); // Boolean型参数 
+element.scrollIntoView(scrollIntoViewOptions); // Object型参数
+```
+
+### scrollIntoViewOptions
+
+- behavior:`auto(default)`,`instant`,`smooth`,Defines the transition animation.
+- block:`start|center(deafult)|end|nearest`,Defines vertical alignment.
+- inline: `start|center(deafult)|end|nearest`,Defines horizontal alignment.
+
+
+[https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView)
 
 
 
