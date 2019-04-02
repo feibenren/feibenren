@@ -26,7 +26,7 @@ nodejs起源于Ryan Dahl(瑞安.达尔,36岁)的一个项目，他想写一个we
 - [依赖项](/NODEJS/依赖项.md)
 - [版本](/NODEJS/版本.md)
 - [事件循环](/NODEJS/事件循环.md)
-- [依赖项](/NODEJS/依赖项.md)
+- [global](/NODEJS/global.md)
 - [依赖项](/NODEJS/依赖项.md)
 - [依赖项](/NODEJS/依赖项.md)
 - [依赖项](/NODEJS/依赖项.md)

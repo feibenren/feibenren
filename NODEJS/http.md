@@ -4,6 +4,27 @@ categories:
   - NODEJS
 ---
 
+It deals with stream handling and message parsing only. It parses a message into headers and body but it does not parse the actual headers or the body.
+
+
+# Class: http.Agent
+
+An Agent is responsible for managing connection persistence and reuse for HTTP clients.
+
+It maintains a queue of pending requests for a given host and port, reusing a single socket connection for each until the queue is empty, 
+
+
+
+
+
+
+
+
+
+
+
+
+
 # http 模块
 
 http模块是node对于网络服务的实现,该模块包含一个服务器(http.Server)，和一个客户端(http.request())

@@ -5,11 +5,12 @@ categories:
 ---
 
 # fs
-node中的文件操作模块,通过该模块，可以实现读取，写入，更名，删除 等功能
-常见的函数
+# File Descriptors
+On POSIX systems, for every process, the kernel maintains a table of currently open files and resources. Each open file is assigned a simple numeric identifier called a file descriptor. At the system-level, all file system operations use these file descriptors to identify and track each specific file. Windows systems use a different but conceptually similar mechanism for tracking resources. To simplify things for users, Node.js abstracts away the specific differences between operating systems and assigns all open files a numeric file descriptor.
 
-- fs.readFile(path,[encoding],[callback]):读取文件
 
+
+# Class: fs.Dirent
 
 
 
