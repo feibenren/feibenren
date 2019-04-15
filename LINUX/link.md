@@ -19,7 +19,7 @@ everything is file
 - 普通文件-
 - 目录文件d
 - 软连接l
-- 快文件b 
+- 块文件b 
 - 字符文件c
 
 

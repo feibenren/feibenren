@@ -4,56 +4,107 @@ categories:
 - NODEJS
 ---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 # events
-node中的最重要的模块，没有之一，因为node就是基于事件机制的，而他提供 **唯一接口**，node内置的模块，都继承events模块来实现事件机制，因为它是唯一，所以都得继承他才可以实现事件机制
 
-该对象就一个属性 **events.EventEmitter**，这个属性的作用就是一个事件的添加，发射，删除，功能
+Much of the Node.js core API is built around an idiomatic asynchronous event-driven architecture in which certain kinds of objects (called "emitters") emit named events that cause Function objects ("listeners") to be called.
 
-# EventEmitter 常用方法
-- EventEmitter.on(event,listener):绑定事件处理函数
-- EventEmitter.once(event,listener):同上，就触发一次
-- EventEmitter.emit(event,[arg1],[arg2]):触发事件
-- EventEmitter.removeListener(event,listener):删除对应event的listener
-- EventEmitter.removeAllListeners([event]):删除对应的event的所有listener
+很多nodejs的核心api，都是构建在` idiomatic asynchronous event-driven architecture(惯用的异步事件驱动的架构)`上的
 
-通过这些方法，可以看到，一个事件可以绑定多个listener
+这个架构中，某些对象(叫做`emitters`)会发射带有名字的事件，这些事件会导致某些函数(listeners)被调用
 
-示例:
+
+All objects that emit events are instances of the EventEmitter class
+
+
+示例
 
 ```
-const events=require('events');
-let my_emitter=new events.EventEmitter();
-my_emitter.on('e1',function(){
-    console.log('e1....')
+const EventEmitter = require('events');
+
+class MyEmitter extends EventEmitter {}
+
+const myEmitter = new MyEmitter();
+myEmitter.on('event', () => {
+  console.log('an event occurred!');
 });
-my_emitter.emit('e1');
+myEmitter.emit('event');
 ```
 
-# error事件
-EventEmitter定义了一个特殊的事件，error，这个事件包含了一些错误的信息，我们不同给传递参数
+# Passing arguments and `this` to listeners
 
-如果系统没有捕获这个事件的话，node会退出的
+event会传递arguments和this给listeners，但是如果使用了箭头函数，那么this就是一个空对象了
 
-示例:
-```
-const events=require('events');
-let my_emitter=new events.EventEmitter();
-my_emitter.on('error',function(data){
-    console.log(data)
-});
-my_emitter.emit('error','error message');
-```
-那么是不是以后都必须写error捕获函数了？
+
+# Class: EventEmitter
+
+
+The EventEmitter class is defined and exposed by the events module:
+
+EventEimtter类是通过events模块来定义和暴露的
+
+- emitter.addListener(eventName, listener)
+- emitter.emit(eventName[, ...args])
+- emitter.eventNames()
+- emitter.getMaxListeners()
+- emitter.listenerCount(eventName)
+- emitter.listeners(eventName)
+- emitter.off(eventName, listener)
+- emitter.on(eventName, listener)
+- emitter.once(eventName, listener)
+- emitter.prependListener(eventName, listener)
+- emitter.prependOnceListener(eventName, listener)
+- emitter.removeAllListeners([eventName])
+- emitter.removeListener(eventName, listener)
+- emitter.setMaxListeners(n)
+- emitter.rawListeners(eventName)
+
+
+
+# emitter.addListener(eventName, listener)
+
+Alias for emitter.on(eventName, listener).
+
+# emitter.emit(eventName[, ...args])
+Synchronously calls each of the listeners registered for the event named eventName, in the order they were registered, passing the supplied arguments to each.
+
+
+同步调用注册的listeners函数，会按照他们注册时候的顺序进行调用
+
+会传递参数给每个listener
+
+
+# emitter.eventNames()
+
+Returns an array listing the events for which the emitter has registered listeners. The values in the array will be strings or Symbols.
+
+返回注册的事件名，是一个数组
+
+# emitter.getMaxListeners()
+
+# emitter.listenerCount(eventName)
+# emitter.listeners(eventName)
+
+# emitter.off(eventName, listener)
+Alias for emitter.removeListener().
+
+# emitter.on(eventName, listener)
+
+Adds the listener function to the end of the listeners array for the event named eventName. No checks are made to see if the listener has already been added. Multiple calls passing the same combination of eventName and listener will result in the listener being added, and called, multiple times.
+
+添加listenr到listens数组的尾部
+
+并且添加的时候不会检查是否被添加过，如果多次被添加，那么这个listener会被调用多次
+
+# emitter.once(eventName, listener)
+
+listener只相应一次，其他都会被忽略
+
+# emitter.prependListener(eventName, listener)
+和on函数类似，但是这个listener被添加到listeners数组的头部
+
+# emitter.prependOnceListener(eventName, listener)
+# emitter.removeAllListeners([eventName])
+# emitter.removeListener(eventName, listener)
+# emitter.setMaxListeners(n)
+# emitter.rawListeners(eventName)
+
