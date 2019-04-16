@@ -27,11 +27,7 @@ Blob <------ File
 
 这些属性都是文件的一些信息
 
+
 # links
 
 - [https://developer.mozilla.org/zh-CN/docs/Web/API/File](https://developer.mozilla.org/zh-CN/docs/Web/API/File)
-- []()
-- []()
-- []()
-- []()
-- []()

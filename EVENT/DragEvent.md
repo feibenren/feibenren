@@ -14,6 +14,10 @@ Event <---UIEvent <------ MouseEvent <----------  DragEvent
 
 # 属性
 
+- DragEvent.dataTransfer 
+
+# 事件
+
 - DragEvent.dragstart
 - DragEvent.drag
 - DragEvent.dragend
@@ -64,6 +68,7 @@ target
 # 总结
 
 - 拖拽分为item和target双方，这个和其他事件不一样
+- 最好按照拖拽元素和拖拽文件来分别研究，这两者不同
 
 [示例代码](https://jsbin.com/fajegut/1/edit?html,js,console,output)
 

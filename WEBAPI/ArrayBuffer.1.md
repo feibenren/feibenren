@@ -12,42 +12,28 @@ ArrayBuffer 对象用来表示通用的、固定长度的原始`二进制数据�
 The ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer. You cannot directly manipulate the contents of an ArrayBuffer; instead, you create one of the typed array objects or a DataView object which represents the buffer in a specific format, and use that to read and write the contents of the buffer.
 
 
-> 简单说就是通过类似array的形式，创建一个原始的二进制数据，这个数据在缓冲区中，不一定一定在内存中
+
+（1）ArrayBuffer对象：代表内存之中的一段二进制数据，可以通过“视图”进行操作。“视图”部署了数组接口，这意味着，可以用数组的方法操作内存。
+
+（2) TypedArray对象：用来生成内存的视图，通过9个构造函数，可以生成9种数据格式的视图，比如Uint8Array（无符号8位整数）数组视图, Int16Array（16位整数）数组视图, Float32Array（32位浮点数）数组视图等等。
+
+（3）DataView对象：用来生成内存的视图，可以自定义格式和字节序，比如第一个字节是Uint8（无符号8位整数）、第二个字节是Int16（16位整数）、第三个字节是Float32（32位浮点数）等等。
 
 
-# 语法
 
-```
-new ArrayBuffer(length)
-```
 
-- length:要创建的 ArrayBuffer 的大小，单位为`字节(byte)`
+视图的作用是以指定格式解读二进制数据
 
-也就是说，总的长度是`length*8bit`
+
+
+
+ArrayBuffer对象代表原始的二进制数据，
+TypedArray对象代表确定类型的二进制数据，
+DataView对象代表不确定类型的二进制数据。
 
 # 属性
 
-- ArrayBuffer.length
-- ArrayBuffer.prototype.byteLength
-
-
 # 方法
-
-- ArrayBuffer.isView()
-- ArrayBuffer.prototype.slice()
-- 
-
-
-# 以现有数据获取 ArrayBuffer
-
-- 从 Base64 字符串
-- 从本地文件
-
-# 总结
-
-可以在缓冲区操作二进制的数据，注意length的单位是byte
-
-创建的数据是无法直接操作的，需要通过`视图`来进行操作
 
 
 

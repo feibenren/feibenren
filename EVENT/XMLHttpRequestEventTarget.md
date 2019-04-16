@@ -40,8 +40,3 @@ XMLHttpRequestEventTarget是xhr对应的的`event target`
 # links
 
 - [https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
-- []()
-- []()
-- []()
-- []()
-- []()

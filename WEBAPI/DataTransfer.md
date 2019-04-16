@@ -10,6 +10,13 @@ categories:
 
 
 
+ # 总结
+
+ 使用的地方很多
+
+ - clipboard
+ - drag文件
+ - drag元素
 
 
  # links

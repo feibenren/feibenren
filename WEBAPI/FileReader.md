@@ -48,6 +48,7 @@ FileReader.result则是读取的内容
 # FileReader.readAsArrayBuffer()
 
 # FileReader.readAsDataURL()
+
 result属性中将包含一个data: URL格式的字符串以表示所读取文件的内容
 # FileReader.readAsText()
 result属性中将包含一个字符串以表示所读取的文件内容

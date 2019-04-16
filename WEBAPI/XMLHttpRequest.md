@@ -90,8 +90,3 @@ xhr中`最重要`的一个属性，表示的是`xhr的状态`
 # links
 
 - [https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
-- []()
-- []()
-- []()
-- []()
-- []()
