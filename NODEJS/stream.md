@@ -272,8 +272,22 @@ Use of the readable.pipe() method is recommended for most users as it has been i
 
 # Duplex and Transform Streams
 
+这两个用的比较少，但是有一个特点，只要是实现了这两个流，就有一个特点
 
+`readableStream.pipe(duplex/Transform).pipe(writableStream)`
 
+也就是说，duplex可以放到pipe链条中的中间pipe中
+
+### Duplex 
+
+- TCP sockets
+- zlib streams
+- crypto streams
+
+### stransform
+
+- zlib streams
+- crypto streams
 
 # 总结
 
