@@ -34,4 +34,63 @@ nodejs现在推荐使用
 - Buffer.allc():初始化一个buffer对象
 
 
-To make the creation of Buffer instances more reliable and less error-prone, the various forms of the new Buffer() constructor have been deprecated and replaced by separate Buffer.from(), Buffer.alloc(), and Buffer.allocUnsafe() methods.
+# 静态方法
+
+- Class Method: Buffer.alloc(size[, fill[, encoding]])
+- Class Method: Buffer.byteLength(string[, encoding])
+- Class Method: Buffer.compare(buf1, buf2)
+- Class Method: Buffer.concat(list[, totalLength])
+- Class Method: Buffer.from(array)
+- Class Method: Buffer.isBuffer(obj)
+- Class Method: Buffer.isEncoding(encoding)
+
+# 属性
+
+- 
+- 
+
+
+# 方法
+
+- buf.readDoubleBE(offset)
+- buf.readDoubleLE(offset)
+- buf.readFloatBE(offset)
+- buf.readFloatLE(offset)
+- buf.readInt8(offset)
+- buf.readInt16BE(offset)
+- buf.readInt16LE(offset)
+- buf.readInt32BE(offset)
+- buf.readInt32LE(offset)
+- buf.readIntBE(offset, byteLength)
+- buf.readIntLE(offset, byteLength)
+- buf.readUInt8(offset)
+- buf.readUInt16BE(offset)
+- buf.readUInt16LE(offset)
+- buf.readUInt32BE(offset)
+- buf.readUInt32LE(offset)
+
+
+- buf.values()
+- buf.write(string[, offset[, length]][, encoding])
+- buf.writeDoubleBE(value, offset)
+- buf.writeDoubleLE(value, offset)
+- buf.writeFloatBE(value, offset)
+- buf.writeFloatLE(value, offset)
+- buf.writeInt8(value, offset)
+- buf.writeInt16BE(value, offset)
+- buf.writeInt16LE(value, offset)
+- buf.writeInt32BE(value, offset)
+- buf.writeInt32LE(value, offset)
+- buf.writeIntBE(value, offset, byteLength)
+- buf.writeIntLE(value, offset, byteLength)
+- buf.writeUInt8(value, offset)
+- buf.writeUInt16BE(value, offset)
+- buf.writeUInt16LE(value, offset)
+- buf.writeUInt32BE(value, offset)
+- buf.writeUInt32LE(value, offset)
+
+# 总结
+
+- Buffer对象都是在内存中的
+- 继承自util8Int
+- 和DataView,TypeArray很多方法类似

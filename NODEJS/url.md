@@ -40,4 +40,4 @@ url有两组api，一组是nodejs自定义的，一组是html5的接口
 
 url.searchParams对象返回的是一个`URLSearchParams`接口
 
-URLSearchParams这个接口其实是html5中规定的一个接口,nodejs引入了该接口，nodejs之前有一个自己的与之类似功能的模块`querystring`
+URLSearchParams这个接口其实是html5中规定的一个接口,nodejs引入了该接口，nodejs之前有一个自己的与之类似功能的模块`querystring`，querystring功能更强大，但是`url.searchParams`已经足够使用，推荐使用这个属性

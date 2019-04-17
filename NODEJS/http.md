@@ -3,462 +3,244 @@ title: http
 categories:
   - NODEJS
 ---
+# HTTP
+http模块是nodejs中负责http协议的模块
+# 运行机理
+http协议本质上是socket通信
 
-It deals with stream handling and message parsing only. It parses a message into headers and body but it does not parse the actual headers or the body.
+nodejs在内部维护了一个`SOCKET连接池`,由`http.Agent`维护
 
+这些socket连接，会根据`keepAlive`来确定销毁还是放入连接池中
 
 # Class: http.Agent
 
-An Agent is responsible for managing connection persistence and reuse for HTTP clients.
+- new Agent([options])
+- agent.createConnection(options[, callback])
+- agent.keepSocketAlive(socket)
+- agent.reuseSocket(socket, request)
+- agent.destroy()
+- agent.freeSockets
+- agent.getName(options)
+- agent.maxFreeSockets
+- agent.maxSockets
+- agent.requests
+- agent.sockets
 
-It maintains a queue of pending requests for a given host and port, reusing a single socket connection for each until the queue is empty, 
 
+## new Agent([options])
 
+options:
 
+- keepAlive <boolean> Keep sockets around even when there are no outstanding requests, so they can be  used for future requests without having to reestablish a TCP connection. Default: false.
+- keepAliveMsecs <number> When using the keepAlive option, specifies the initial delay for TCP Keep-Alive packets. Ignored when the keepAlive option is false or undefined. Default: 1000.
+- maxSockets <number> Maximum number of sockets to allow per host. Default: Infinity.
+- maxFreeSockets <number> Maximum number of sockets to leave open in a free state. Only relevant if keepAlive is set to true. Default: 256.
+- timeout <number> Socket timeout in milliseconds. This will set the timeout after the socket is connected.
 
+从参数可以看到，http.Agent负责维护tcp request pool
 
+其对象所拥有的方法基本上是`net模块`的方法的实现
 
 
+# Class: http.ClientRequest
 
+This object is created internally and returned from `http.request()`. It represents an in-progress request whose header has already been queued.
 
+http.ClientRequest这个对象是内部生成的，并且通过`http.request()`这个方法返回的
 
+表示的是一个`正在进行的请求对象`
 
+To get the response, add a listener for 'response' to the request object. 'response' will be emitted from the request object when the response headers have been received. The 'response' event is executed with one argument which is an instance of http.IncomingMessage.
 
 
-# http 模块
+为了得到response，需要添加一个`response`事件handler到request对象上
 
-http模块是node对于网络服务的实现,该模块包含一个服务器(http.Server)，和一个客户端(http.request())
+response对象会在响应http的headers都收到之后触发
 
-# http.Server(服务器)
+response事件触发后，会给hanlder传递一个`http.IncomingMessage`的实例，这个实例表示response
 
-http.Server 是创建服务器的类
+## 事件
 
-```
+- abort
+- connect
+- continue
+- information
+- `response`
+- socket
+- timeout
+- `upgrade`
 
-const http=require('http');
-const server=new http.Server();
 
-```
+## 属性
 
-server 实例的自定义事件，主要的是 **request** 事件:当接收到请求的时候，触发该事件
+- request.finished
+- request.maxHeadersCount
+- request.socket
 
-```
-server.on('request',function(req,res){
-    res.end('111');
-});
-```
 
-server 实例方法:
+## 方法
+- `request.end([data[, encoding]][, callback])`
+- request.flushHeaders()
+- request.getHeader(name)
+- request.setHeader(name, value)
+- request.setTimeout(timeout[, callback])
+- `request.write(chunk[, encoding][, callback])`
 
-- listen();设置监听端口
+### request.end([data[, encoding]][, callback])
 
-```
-server.listen(9998);
-```
+Finishes sending the request. If any parts of the body are unsent, it will flush them to the stream. If the request is chunked, this will send the terminating '0\r\n\r\n'.
 
-示例:
+这个函数表示结束发送request请求，如果body中还有没有发送的部分，他们会被直接刷到stream中，如果request被阻塞了，他们会发送结束标志
 
-```
-const http=require('http');
-const server=new http.Server();
-server.on('request',function(req,res){
-    res.end('111');
-});
-server.listen(9998);
-```
+If data is specified, it is equivalent to calling request.write(data, encoding) followed by request.end(callback).
 
-## http.ServerRequest(请求对象)
+如果data有填写，相当于`request.write(data, encoding);request.end(callback);`这两步
 
-在 node 中，使用 http.ServerRequest 表示 **服务器接收到的请求** ，该对象 **只能** 通过`request`事件绑定的处理函数的第一个参数获得，无法直接创建
+If callback is specified, it will be called when the request stream is finished.
 
-```
-server.on('request',function(req,res){
-    res.end('111');
-});
-```
+### request.write(chunk[, encoding][, callback])
 
-http.ServerRequest 上绑定了很多属性,如:
+往body中写入数据
 
-- url:请求的 url
-- method:请求方法
-- headers:请求头
+# Class: http.Server
 
-> 注意，http.ServerRequest 上面，没有请求体,请求体需要自己获得
+This class inherits from `net.Server`
 
-## http.ServerResponse(响应对象)
+http.Server添加了一些事件和方法
 
-http.ServerResponse 对象表示 **服务器响应**,同样，该对象无法创建，request 事件绑定的处理函数中的第二个参数表示 http.ServerResponse
+## 事件
 
-主要有着几个方法
+- request
 
-- writeHead(statusCode,[headers]):设置响应码和响应头
-- write(data):写入请求体(可以写入多次,append 方式)
-- end(data):结束相应，同时可以传入最后的响应体,注意，该函数必须调用，否则无法返回数据
+# 方法
+- server.close()
+- server.listen()
+- server.setTimeout()
+# 属性
+- server.timeout
+- server.keepAliveTimeout
 
-示例:
 
-```
-const http = require("http");
-const querystring=require('querystring');
-const server = new http.Server();
+# Class: http.ServerResponse
 
-server.on("request", function(req, res) {
-  req.writeHead(200,{
-      'content-Type':'my'
-  });
-  req.write('response data1')
-  req.write('response data2')
-  req.end('response data3')
-});
-server.listen(9998)
-```
+This object is created internally by an HTTP server — not by the user. It is passed as the second parameter to the 'request' event.
 
-## 简写
+这个对象是http server内部创建的，不是用户，它在request事件中触发的时候，会被当作第二个参数传入
 
-因为 request 事件是最常用的，所以，**http 模块** 提供了简写
+## 事件
+- response.close
+- response.finish
+## 属性
+- response.connection
+- response.finished
+- response.headersSent
+- response.sendDate
+- response.socket
+- response.statusCode
+- response.statusMessage
+- response.write()
+- response.writeHead()
+## 方法
+- response.end()
+- response.getHeader(name)
+- response.getHeaderNames()
+- response.getHeaders()
+- response.hasHeader(name)
+- response.removeHeader(name)
+- response.setHeader(name, value)
+- response.setTimeout(msecs[, callback])
 
-```
-const http = require("http");
-http.createServer(function(req,res){
-    res.end('hello word');
-}).listen(8888);
-```
+# Class: http.IncomingMessage
+An IncomingMessage object is created by http.Server or http.ClientRequest and passed as the first argument to the 'request' and 'response' event respectively. It may be used to access response status, headers and data.
 
-http.createServer 返回的是 server 的实例，所以可以连写`.listen(888)`
 
-# http.request() (客户端)
+## 事件
 
-通过`http.request()`可以创建 `http.ClientRequest` (http请求客户端)
+- IncomingMessage.aborted
+- IncomingMessage.close
 
-```
-const http = require("http");
-let option = {
-  url: "http://www.baidu.com",
-  method: "POST"
-};
-let client = http.request(option, res => {
-  //处理返回的数据
-});
-client.write("data");//请求体写入数据
-client.end(); //发送该请求
+## 属性
+- IncomingMessage.aborted
+- IncomingMessage.complete
+- IncomingMessage.headers
+- IncomingMessage.httpVersion
+- IncomingMessage.method
+- IncomingMessage.rawHeaders
+- IncomingMessage.socket
+- IncomingMessage.statusCode
+- IncomingMessage.statusMessage
+- IncomingMessage.url
 
-```
+## 方法
+- IncomingMessage.destroy()
+- IncomingMessage.setTimeout()
 
 
+# 属性和快捷方式
+- http.STATUS_CODES
+- http.createServer([options][, requestListener])
+- http.get(options[, callback])
+- http.get(url[, options][, callback])
+- http.globalAgent
+- http.maxHeaderSize
+- http.request(options[, callback])
+- http.request(url[, options][, callback])
 
-`http.request()`第一个参数是请求配置，第二个是回调函数
 
-http.ClientRequest对象上有一些方法
+## http.METHODS
 
-- write():写入请求体
-- end():结束请求体编辑，发送该请求
-- abort():取消请求
-- setTimeout():设置超时时间
+A list of the HTTP methods that are supported by the parser.
 
+支持解析的method列表
 
+## http.STATUS_CODES
+STATUS_CODES列表
+## http.createServer([options][, requestListener])
 
-> 注意，http.Server 是类，然而 http.request 是函数
+Returns a new instance of http.Server.
 
-### http.ClientResponse
+返回http.Server的实例
 
-http.ClientResponse(客户端请求响应),在`http.request()`传递的回调函数中的第一个参数表示，无法直接创建
+The requestListener is a function which is automatically added to the 'request' event.
 
-挂载的常见的属性方法:
+requestListener这个函数会自动添加为`request`事件listener
 
-- statusCode:响应码
-- headers:响应头
-- setEncoding():设置响应体的编码格式，不设置的话，默认就是 buffer
 
-和server类似，响应体数据可能会很大，所以需要使用事件机制来接收数据
+## http.get()
 
-事件:
+Since most requests are GET requests without bodies, Node.js provides this convenience method. The only difference between this method and http.request() is that it sets the method to GET and calls req.end() automatically. Note that the callback must take care to consume the response data for reasons stated in http.ClientRequest section.
 
-- data:接收数据(可能触发多次)
-- end:数据接收完毕
-- close:连接结束
+大多数的请求都是get请求，并且没有bodies，nodejs提供了一个快捷方法
 
-```
-let client = http.request(option, res => {
-  res.setEncoding("utf8");
-  //处理返回的数据
-  let data = "";
-  res.on("data", function(chunk) {
-    data += chunk;
-  });
-  res.on("end", function() {
-    console.log(data.toString());
-  });
-});
-```
+和`http.request()`不同的是
 
+- method设置为get
+- 自动调用`req.end()`方法
 
 
-## 简写
+## http.globalAgent
+## http.maxHeaderSize
+## http.request(options[, callback])
+## http.request(url[, options][, callback])
 
-http.request() 针对 get 请求，做了简写
+Node.js maintains several connections per server to make HTTP requests. This function allows one to transparently issue requests.
 
-```
-const http = require("http");
-http.get('http://www.baidu.com',(res)=>{
-    res.pipe(process.stdout)
-})
-```
 
-> 就不用写 `client.end()`
 
-## 常见问题
 
-- 如何获取 GET 参数
-- 如何获取 POST 参数
-- 如何搭建一个基础班的服务器
-- 如何搭建一个静态服务器
-- 如何获得一个静态页面的内容 wget
-- 如何获得一个页面中所有的 css
-- 如何获得一个页面中所有的图片
-- 如何 curl????
+# 总结
 
-### 如何获取 GET 参数
+## 客户端
 
-解析 req.url 即可
+- http.request()
+- response事件
+- request.write()
+- request.end()
 
-```
-const http = require("http");
-const server = new http.Server();
-let i = 0;
-server.on("request", function(req, res) {
-  let str=req.url;
-  str=str.split('?')[1];
-  let arr=str.split('&');
-  let params={};
-  arr.map(val=>{
-      let temp=val.split('=');
-      params[temp[0]]=temp[1];
-  });
-  console.log(params);
-  res.end(req.url);
-});
-server.listen(9998);
-```
-
-#### node 提供了一个模块专门用来解析:`url`;
-
-```
-const http = require("http");
-const url = require("url");
-const server = new http.Server();
-let i = 0;
-server.on("request", function(req, res) {
-  console.log(url.parse(req.url));
-  res.end(req.url);
-});
-server.listen(9998);
-```
-
-### 如何获取 POST 数据
-
-req 对象上没有对应的属性，所以无法直接获取
-
-该对象也继承自 events，因为请求数据可能很大,那么接收数据可能需要很长时间，所以必须使用事件机制
-
-自定义事件有三个
-
-- data:接收到一个 chunk 就触发，所以可能会触发多次该事件，chunk 会传入处理函数的第一个参数
-- end:数据接收完成
-- close:结束了请求，比如用户数据没有传完，就关闭浏览器了
-
-然而这个地方涉及到编码问题，如果编码了，那么就简单
-
-如果没有编码，就很复杂
-
-> form 表单的 enctype 属性可以指定编码，一般为 x-www-form-urlencoded,form-data 两种
-
-##### 编码
-
-这种处理其实和简单，编码后的请求体就变成了
-
-```
-name=%E4%BD%A0%E5%A5%BD%E4%BD%A0%E5%A5%BD&age=%E4%BD%A0%E5%A5%BD
-```
-
-只需要解码，拆分接口,示例
-
-```
-const http = require("http");
-const server = new http.Server();
-server.on("request", function(req, res) {
-  let data = "";
-  req.on("data", function(chunk) {
-    data += chunk;
-  });
-  req.on("end", function() {
-    let body=data.toString();
-    let arrs=body.split('&');
-    let objs={};
-    arrs.map(val=>{
-        let temp=val.split('=');
-        objs[temp[0]]=decodeURIComponent(temp[1]);
-    })
-    res.end(JSON.stringify(objs));
-  });
-});
-server.listen(9998)
-```
-
-#### node 给我们提供了一个模块 **querystring**
-
-```
-const http = require("http");
-const querystring=require('querystring');
-const server = new http.Server();
-
-server.on("request", function(req, res) {
-  let data = "";
-  req.on("data", function(chunk) {
-    data += chunk;
-  });
-  req.on("end", function() {
-    res.end(JSON.stringify(querystring.parse(data)));
-  });
-});
-server.listen(9998)
-```
-
-##### 未编码
-
-这种情况就很麻烦,也就是 form 使用了 form-data 格式来提交数据,
-得到的数据格式如下，一个大字符串，需要自己手工来提取数据，一般需要使用第三方模块来实现
-
-```
-{
-    "------WebKitFormBoundaryi1gQpPazguAHtdnX\r\nContent-Disposition: form-data; name": "\"aaa\"\r\n\r\n111\r\n------WebKitFormBoundaryi1gQpPazguAHtdnX\r\nContent-Disposition: form-data; name=\"bbb\"\r\n\r\n222\r\n------WebKitFormBoundaryi1gQpPazguAHtdnX--\r\n"
-}
-```
-
-## 如何搭建一个基础班的服务器
-
-```
-var http=require('http');
-var process=require('process');
-var args=process.argv.slice(2);
-var server=http.createServer(function(request,response){
-    console.log(request.url);
-});
-
-var host=(typeof args[0] != "undefined") ? args[0] : '127.0.0.1';
-var port=(typeof args[1] != "undefined") ? args[1] : 3000;
-
-server.listen(port,host,function(){
-    console.log(`server start at http://${host}:${port}`);
-});
-```
-
-## 如何搭建一个静态服务器
-
-```
-//通过127.0.0.1:3000/1.jpg,可以看到test目录下面的图片
-var http = require('http');
-var process = require('process');
-var path = require('path');
-var fs = require('fs');
-var args = process.argv.slice(2);
-var server = http.createServer(function (request, response) {
-    request.setEncoding('utf-8');
-    var file = path.join(__dirname, 'test', request.url);
-    fs.stat(file, function (err, stat) {
-        if (err) {
-            console.log(err);
-            response.end('报错了');
-        }
-        if (stat &&stat.isFile()) {
-            var stream = fs.createReadStream(file);
-            response.writeHead(200, {'Content-Type': 'image/jpeg'});
-            var res = fs.readFileSync(file);
-            response.end(res);
-            response.on('end', function () {
-                console.log('传输完成');
-            })
-        } else {
-            response.writeHead('404',{"Content-Type":"text/plain"});
-            response.write('查找文件不存在');
-            response.end();
-        }
-    });
-
-
-    request.on('error', function (e) {
-        console.log('problem with request: ' + e.message);
-    });
-    response.on('error', function (e) {
-        console.log('problem with request: ' + e.message);
-    });
-
-});
-
-var host = (typeof args[0] != "undefined") ? args[0] : '127.0.0.1';
-var port = (typeof args[1] != "undefined") ? args[1] : 3000;
-
-server.listen(port, host, function () {
-    console.log(`server start at http://${host}:${port}`);
-});
-//有报错，不知道为什么
-```
-
-## 如何获得一个静态页面的内容
-
-```
-var http = require('http');
-var fs = require('fs');
-var url='http://www.baidu.com';
-http.get(url,function(client){
-    var res;
-    client.on('data',function(e){
-        res+=e;
-    });
-    client.on('end',function(){
-        fs.writeFile('baidu.html',res);
-    })
-})
-```
-
-## 获取指定页面的所有图片
-
-```
-//通过127.0.0.1:3000/1.jpg,可以看到test目录下面的图片
-var http = require('http');
-var process = require('process');
-var path = require('path');
-var fs = require('fs');
-var URL=require('url');
-var args = process.argv.slice(2);
-//获得网页中所有的图片
-var target='http://m.lianqiwenhuaw.com/';
-
-http.get(target,function(client){
-    var data;
-    client.on('data',function(e){
-        data+=e;
-    });
-    client.on('end',function(){
-        var imageUrls=data.match(/src="[a-zA-Z0-9_\/\.]*[jpg|png|gif]"/g);
-        imageUrls.forEach(function(val) {
-            val=val.replace(/["|']/g,'').replace('src=','');
-            var old=val;
-            val='http://'+path.join('m.lianqiwenhuaw.com',val);
-            // console.log(val);
-            http.get(val,function(client){
-                var data;
-                client.on('data',function(e){
-                    data+=e;
-                });
-                client.on('end',function(){
-                    var file_name=old.split(/\//g).reverse()[0];
-                    // console.log(file_name);
-                    fs.writeFile(path.join(__dirname,'test',file_name),data);//这样得到的图片显示图片损坏，到底哪里出了问题
-                });
-            });
-        }, this);
-
-        // console.log(imagesUrl);
-    })
-})
-```
+## 服务器端
+- http.createServer()
+- server.createServer()
+- request事件
+- server.listen()
+- response.write()
+- response.end()
