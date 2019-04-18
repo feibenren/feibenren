@@ -148,3 +148,11 @@ Calling subprocess.ref() after making a call to subprocess.unref() will restore 
 ### 子进程
 - send()
 
+# 总结
+
+nodejs简化了linux C中的进程管理
+
+所有的子进程都是通过command来单独创建的，没有拷贝之说
+
+由于Child_process部署了EventEmitter，所以可以非常方便的IPC
+

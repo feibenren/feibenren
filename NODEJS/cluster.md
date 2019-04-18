@@ -5,6 +5,7 @@ categories:
 ---
 
 # cluster
+
 cluster模块其实是Child_process的一种`特殊情况`
 
 使用child_process，就可以创建进程,但是创建的child_process是平等的，可独立的
@@ -12,6 +13,8 @@ cluster模块其实是Child_process的一种`特殊情况`
 但是绝大部分情况下，我们需要的是一个主次关系，而这就是cluster提供的
 
 cluster 主要用来网络，可以非常方便的共享端口
+
+但是其他地方也可以使用
 
 
 # Class: Worker
@@ -42,6 +45,7 @@ This can only be called from the master process.
 ## cluster.isWorker
 ## cluster.schedulingPolicy
 ## cluster.settings
+
 ## cluster.setupMaster([settings])
 用于修改默认'fork' 行为
 
@@ -59,3 +63,15 @@ This can only be called from the master process.
 ## cluster.workers
 
 这是一个哈希表，储存了活跃的工作进程对象， id作为key。有了它，可以方便地遍历所有工作进程。只能在主进程中调用。
+
+
+# 总结
+
+cluster可以非常方便的创建集群
+
+如果按照CPU的核数来创建CPU，cluster文档并`没有说明`创建的进程是一个cpu分配一个进程
+
+
+child_process主要的功能是`子进程`
+
+cluster的主要功能是`集群`
