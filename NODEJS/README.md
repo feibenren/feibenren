@@ -3,6 +3,10 @@ title: README
 categories: 
 - NODEJS
 ---
+# playground
+
+[https://runkit.com](https://runkit.com)
+
 
 # base
 nodejs起源于Ryan Dahl(瑞安.达尔,36岁)的一个项目，他想写一个web服务器，类似于Apache，nginx的东西，根据个人的经验，写出的服务器需要实现 `事件驱动`，`异步I/O`才可能高效。
