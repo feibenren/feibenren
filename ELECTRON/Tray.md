@@ -1,11 +1,11 @@
 ---
-title: README
+title: Tray
 categories:
 - ELECTRON
 ---
 
-# ELECTRON
-
+# Tray
+添加图标和上下文菜单到系统通知区
 
 
 # links

@@ -1,11 +1,17 @@
 ---
-title: README
+title: powerSaveBlocker
 categories:
 - ELECTRON
 ---
 
-# ELECTRON
+# powerSaveBlocker(省电拦截器)
 
+阻止系统进入低功耗 (休眠) 模式。
+
+# 方法
+- powerSaveBlocker.start(type)
+- powerSaveBlocker.stop(id)
+- powerSaveBlocker.isStarted(id)
 
 
 # links

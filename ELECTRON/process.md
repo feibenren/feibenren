@@ -1,11 +1,11 @@
 ---
-title: README
+title: process
 categories:
 - ELECTRON
 ---
+# process
 
-# ELECTRON
-
+Electron's process 对象继承 Node.js process object。 它新增了以下事件、属性和方法
 
 
 # links

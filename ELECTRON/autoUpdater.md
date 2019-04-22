@@ -1,10 +1,11 @@
 ---
-title: README
+title: autoUpdater
 categories:
 - ELECTRON
 ---
 
-# ELECTRON
+# autoUpdater
+使应用程序能够自动更新
 
 
 
