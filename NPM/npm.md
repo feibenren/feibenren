@@ -32,15 +32,7 @@ categories:
 npm link is designed to install a development package and see the changes in real time without having to keep re-installing it. (You do need to either re-link or npm rebuild -g to update compiled packages, of course.)
 
 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
+
 
 # 参考文章
 

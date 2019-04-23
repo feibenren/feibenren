@@ -7,7 +7,7 @@ categories:
 
 The child_process module provides the ability to spawn child processes in a manner that is similar, but not identical, to popen(3). This capability is primarily provided by the child_process.spawn() function:
 
-child_process模块提供了孕育子进程的能力，和C中的popen()类似,主要通过`process.spawn()`来实现
+child_process模块提供了`孕育`子进程的能力，和C中的popen()类似,主要通过`process.spawn()`来实现
 
 
 # 和C不同
@@ -92,6 +92,8 @@ Spawns a shell then executes the command within that shell
 
 fork()方法创建的child_process,是和父进程独立的，拥有单独的V8，单独的内存
 
+> child_process.fork() 没有参数
+
 # Class: ChildProcess
 
 ## 事件
@@ -144,7 +146,7 @@ Calling subprocess.ref() after making a call to subprocess.unref() will restore 
 # IPC
 
 ### 主进程
-- event message
+- message事件
 ### 子进程
 - send()
 
