@@ -120,3 +120,20 @@ IIFE
 
 
 https://juejin.im/post/5ab0f8135188255565345891
+
+
+
+声明变量的操作，返回值是undefined
+
+赋值变量的操作，返回值是赋值的数值
+
+赋值变量的操作可以当做参数使用
+
+```
+let a=1;//
+
+function test(val){console.log(val)}
+
+test(a=4);
+
+```
