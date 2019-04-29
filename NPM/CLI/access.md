@@ -7,7 +7,7 @@ categories:
 
 Set access level on published packages
 
-这是发布的package的权限
+设置发布的package的权限
 
 > 免费用户没有这个权限
 

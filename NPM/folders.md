@@ -42,7 +42,7 @@ When in local mode, executables are linked into ./node_modules/.bin so that they
 
 当本地模式中，可执行命令会被link to`./node_modules/.bin`,这样npm就可以使用这些命令了,比如test的时候
 
-这里的link，在linux中，就是创建软连接，在window中，不是创建软连接，而是创建cmd文件
+> 这里的link，在linux中，就是创建软连接，在window中，不是创建软连接，而是创建cmd文件
 
 
 # Node Modules

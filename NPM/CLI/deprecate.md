@@ -7,7 +7,7 @@ categories:
 
 Deprecate a version of a package
 
-弃用某个版本的package
+`弃用`某个版本的package
 
 ```
 npm deprecate <pkg>[@<version>] <message>
